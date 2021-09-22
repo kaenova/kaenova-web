@@ -1,6 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+
+function Content(){
+  return (
+    <>
+    <motion.p>
+    Hello this is from Initial Page!
+    </motion.p>
+    </>
+  )
+}
+
 const config = {
   activate : true,
   tailwindClass : "fixed top-0 w-screen h-screen bg-white z-50 flex items-center justify-center",
@@ -19,18 +30,7 @@ const config = {
   }
 }
 
-function Content(){
-  return (
-    <>
-    <motion.p>
-    Hello this is from Initial Animation!
-    </motion.p>
-    </>
-  )
-}
-
-
-function InitialAnimation(props) {
+export function InitialPage(props) {
   return (
     props.activate=="true" ?
     <motion.div
@@ -47,5 +47,3 @@ function InitialAnimation(props) {
     </>
   )
 }
-
-export default InitialAnimation

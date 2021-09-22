@@ -1,7 +1,14 @@
 import React from 'react'
-import BounceLoader from 'react-spinners/BounceLoader'
 import { motion } from 'framer-motion'
 
+
+function Content() {
+  return (
+    <>
+    Hello Page Transition
+    </>
+  )
+}
 
 const config = {
   tailwindClass: "fixed top-0 w-screen h-screen bg-gray-400 z-40 flex justify-center items-center",
@@ -34,7 +41,7 @@ const config = {
 }
 
 
-function PageTransition(props) {
+export function PageTransition(props) {
 
   return (
     props.activate=="true" ? (
@@ -44,7 +51,7 @@ function PageTransition(props) {
         transition="transition"
         variants={!props.load ? config.motion.motionVariantsOut: config.motion.motionVariantsIn}
       >
-        <BounceLoader />
+        {Content()}
     </motion.div>
     )
     :
@@ -53,4 +60,3 @@ function PageTransition(props) {
   )
 }
 
-export default PageTransition

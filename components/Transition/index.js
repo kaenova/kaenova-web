@@ -1,5 +1,5 @@
-import {InitialPage} from './InitialPage/InitialPage'
-import {PageTransition} from './PageTransition/PageTransition'
+import {InitialPage} from './InitialPage'
+import {PageTransition} from './PageTransition'
 
 
 export {InitialPage, PageTransition}
