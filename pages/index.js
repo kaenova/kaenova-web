@@ -53,7 +53,6 @@ export default function Home() {
             <MediaSocialBox icon="github" href="https://github.com/kaenova" />
             <MediaSocialBox icon="linkedin" href="https://www.linkedin.com/in/kaenova/" />
             <MediaSocialBox icon="twitter" href="https://twitter.com/i/events/1275477348419170317" />
-            <MediaSocialBox icon="instagram" href="https://www.instagram.com/kaenovama/" />
           </div>
       </div>
     </div>
