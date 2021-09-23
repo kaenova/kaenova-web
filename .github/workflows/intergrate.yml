@@ -23,12 +23,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Install Yarn
+        run: npm install --global yarn
       - name: Install packages
-        run: npm ci
+        run: yarn
       - name: Build project
-        run: npm run build
+        run: yarn build
       - name: Export static files
-        run: npm run export
+        run: yarn export
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
       - name: Deploy
