@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -9,12 +10,15 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+        <Link href='/about'>
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
+          <a className="text-blue-600" href="/about">
             Next.js!
           </a>
         </h1>
+        </Link>
+
 
         <p className="mt-3 text-2xl">
           Get started by editing{' '}

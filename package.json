@@ -7,10 +7,11 @@
   },
   "dependencies": {
     "framer-motion": "^4.1.17",
-    "lottie-react": "^2.1.0",
     "next": "latest",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-lottie": "^1.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
