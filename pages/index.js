@@ -3,21 +3,6 @@ import { MediaSocialBox } from '@Components/MediaSocial/'
 import * as animationData from '@Public/LoadingKMALogo.json'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const SocialMedia = [
-  {
-    link: "https://github.com/kaenova",
-    icon: "github"
-  },
-  {
-    link: "https://www.linkedin.com/in/kaenova/",
-    icon: "linkedin"
-  },
-  {
-    link: "https://twitter.com/i/events/1275477348419170317",
-    icon: "twitter"
-  }
-]
-
 export default function Home() {
 
   const animationOption = {
@@ -41,9 +26,22 @@ export default function Home() {
         <h1 className="text-center" style={{ letterSpacing: "0.3em" }}>
           KMA
         </h1>
-        <p className="text-center" style={{ letterSpacing: "0.3em" }}>
+        <motion.p className="text-center"
+        style={{ letterSpacing: "0.3em" }}
+        initial={{
+          letterSpacing: "0.6em"
+        }}
+        animate={{
+          letterSpacing: "0.3em"
+        }}
+        transition={{
+          duration: 1,
+          ease: [1,0,.61,1.35],
+          delay: 0.1
+        }}
+        >
           Kaenova Mahendra Auditama
-        </p>
+        </motion.p>
       </div>
       <div className="mt-5 flex flex-col justify-center items-center">
         <p>
