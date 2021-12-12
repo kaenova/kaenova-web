@@ -7,7 +7,7 @@ function HomeDef() {
 
   return (
     <>
-      {/* <Section1Home/> */}
+      <Section1Home/>
       <Section2Home/>
     </>
   )
