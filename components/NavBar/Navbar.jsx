@@ -67,14 +67,14 @@ function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="fixed bg-white shadow-lg flex flex-row items-end top-0 right-0 w-[450px] h-[50px] justify-between rounded-bl-[18px] pb-[13px] pl-[50px] pr-[30px] tracking-wide select-none invisible sm:visible">
+      <div className="fixed bg-white shadow-lg flex flex-row items-end top-0 right-0 w-[450px] h-[50px] justify-between rounded-bl-[18px] pb-[13px] pl-[50px] pr-[30px] tracking-wide select-none invisible sm:visible z-[1]">
         <button>Hello World</button>
         <button>Hello World</button>
         <button>Hello World</button>
       </div>
       <button
         onClick={() => setModalIsActive(true)}
-        className="fixed top-[18px] right-[20px] w-[24px] h-[24px] sm:invisible select-none"
+        className="fixed top-[18px] right-[20px] w-[24px] h-[24px] sm:invisible select-none z-[1]"
       >
         <img src="/menu-outline.svg" alt="button" />
       </button>

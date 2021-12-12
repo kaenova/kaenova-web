@@ -16,13 +16,11 @@ class MainDocument extends Document {
           />
         </Head>
         <body
-          className="antialiased"
-          style={{ fontFamily: ["Poppins", "sans-serif"] }}
+          className="antialiased bg-white-template text-black-template"
+          style={{ fontFamily: ["Poppins", "sans-serif"]}}
         >
-          <div className="bg-white-template text-black-template">
             <Main />
             <NextScript />
-          </div>
         </body>
       </Html>
     );

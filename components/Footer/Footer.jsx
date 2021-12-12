@@ -2,12 +2,12 @@ import React from "react";
 
 function Footer() {
   return (
-    <p
-      style={{ fontFamily: "Poppins" }}
-      className="text-center text-[14px] tracking-wide pb-4 select-none font-normal"
-    >
-      Kaenova Mahendra Auditama. 2021.
-    </p>
+    <footer className="mb-[20px] flex flex-col justify-center items-center select-none">
+      <p className="text-[10px]">Created by</p>
+      <p className="tracking-normal text-[14px]">
+        Kaenova Mahendra Auditama. 2021.
+      </p>
+    </footer>
   );
 }
 
