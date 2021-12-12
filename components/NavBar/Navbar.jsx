@@ -38,13 +38,13 @@ function Navbar() {
       <AnimatePresence>
         {ModalIsActive && (
           <motion.div
-            className="fixed z-[1] top-0 w-screen h-screen flex justify-center items-center"
+            className="fixed top-0 w-screen h-screen flex justify-center items-center z-[2]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeIn" }}
           >
-            <div className="bg-white shadow-md min-w-[340px] max-w-[380px] min-h-[400px] max-h-[600px] rounded-2xl z-[2] p-10 flex flex-col items-center justify-center relative">
+            <div className="bg-white shadow-md min-w-[340px] max-w-[380px] min-h-[400px] max-h-[600px] rounded-2xl p-10 flex flex-col items-center justify-center relative z-[3]">
               <div className="flex flex-col">
                 <p className="text-center">You found a shortcut ^^</p>
                 <div className="mt-10 grid grid-flow-row text-center gap-4 font-bold">

@@ -17,7 +17,7 @@ function Section1Home() {
   const router = useRouter()
 
   return (
-    <section className="h-full relative flex flex-col">
+    <section id="idx_sec1" className="h-full relative flex flex-col">
       <div className="h-full flex flex-col justify-center items-center">
         <div className="absolute flex flex-col justify-center items-center">
           <span className="relative left-[-0.25em] animation">
@@ -27,9 +27,25 @@ function Section1Home() {
               style={{color:"#F7F7F7"}}
             />
           </span>
-          <p className="text-center text-[24px] tracking-heading font-bold ">KMA</p>
-          <p className="text-center tracking-normal">Kaenova Mahendra Auditama</p>
-          <div className="w-[206px] flex flex-row justify-between mt-[28px]">
+          <motion.h1 
+          initial={{
+            letterSpacing: "0.001em"
+          }}
+          animate={{
+            letterSpacing: "0.305em"
+          }}
+          transition={{duration:1, ease:'easeInOut'}}
+          className="text-center text-[24px] tracking-heading font-bold ">KMA</motion.h1>
+          <motion.h2 
+          initial={{
+            letterSpacing: "0.6em"
+          }}
+          animate={{
+            letterSpacing: "0.105em"
+          }}
+          transition={{duration:1, ease:'easeInOut'}}
+          className="text-center tracking-normal">Kaenova Mahendra Auditama</motion.h2>
+          <div className="w-[206px] flex flex-row justify-between mt-[28px] select-none">
             <motion.a
             whileHover={{scale:1.05}}
             whileTap={{scale:0.9}}
@@ -55,7 +71,7 @@ function Section1Home() {
         </div>
       </div>
       <div className="absolute bottom-[40px] w-full flex flex-col justify-center">
-        <button className="flex flex-col justify-center items-center select-none">
+        <button onClick={() => document.getElementById("idx_sec2").scrollIntoView()} className="flex flex-col justify-center items-center select-none">
           <p className="text-[14px] text-center">What I Do?</p>
           <motion.div
             whileHover={{ scale: 1.10 }}
