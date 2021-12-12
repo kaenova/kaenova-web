@@ -9,14 +9,13 @@ class MainDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-        </Head>
+        <Head></Head>
         <body
           className="antialiased bg-white-template text-black-template"
-          style={{ fontFamily: ["Poppins", "sans-serif"]}}
+          style={{ fontFamily: ["Poppins", "sans-serif"] }}
         >
-            <Main />
-            <NextScript />
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );

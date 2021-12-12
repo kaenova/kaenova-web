@@ -3,6 +3,7 @@ import { useWindowWidth } from "@react-hook/window-size";
 import { useSelector } from "react-redux";
 import { selectNavBar } from "../../redux/navbarSlice";
 import { motion, AnimatePresence } from "framer-motion";
+import { dataSection } from "./dataNavbar";
 
 function Navbar() {
   const tailwindBreakpoint = {
@@ -15,23 +16,17 @@ function Navbar() {
   };
 
   const windowWidth = useWindowWidth();
-  const navBarState = useSelector(selectNavBar);
   const [ModalIsActive, setModalIsActive] = useState(false);
+  const page = Object.keys(dataSection); // Ini harus di sinkronkan dengan state pada navbarSlice
+  const selected = useSelector(selectNavBar);
 
   useEffect(() => {
-    console.log(windowWidth);
     if (windowWidth > tailwindBreakpoint["sm"]) {
-      setModalIsActive(false);
+      if (ModalIsActive == true) {
+        setModalIsActive(false);
+      }
     }
   }, [windowWidth]);
-
-  useEffect(() => {}, []);
-
-  /*
-  TODO:
-    1. Handle semua button Hello World ke sectionnya masing-masing
-        onClick={() => document.getElementById("nama-Section").scrollIntoView()}
-  */
 
   return (
     <>
@@ -46,11 +41,28 @@ function Navbar() {
           >
             <div className="bg-white shadow-md min-w-[340px] max-w-[380px] min-h-[400px] max-h-[600px] rounded-2xl p-10 flex flex-col items-center justify-center relative z-[3]">
               <div className="flex flex-col">
-                <p className="text-center">You found a shortcut ^^</p>
+                <p className="text-center text-[18px] font-bold border-b-2">
+                  Where do you want to go?
+                </p>
                 <div className="mt-10 grid grid-flow-row text-center gap-4 font-bold">
-                  <button>Hello World</button>
-                  <button>Hello World</button>
-                  <button>Hello World</button>
+                  {page.map((v) => {
+                    return (
+                      <>
+                        <button
+                          onClick={() => {
+                            document
+                              .getElementById(dataSection[v]["section_name"])
+                              .scrollIntoView();
+                            setModalIsActive(false);
+                          }}
+                          key={v}
+                          className={selected === v ? "font-bold" : ""}
+                        >
+                          {v}
+                        </button>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
               <button
@@ -68,9 +80,23 @@ function Navbar() {
         )}
       </AnimatePresence>
       <div className="fixed bg-white shadow-lg flex flex-row items-end top-0 right-0 w-[450px] h-[50px] justify-between rounded-bl-[18px] pb-[13px] pl-[50px] pr-[30px] tracking-wide select-none invisible sm:visible z-[1]">
-        <button>Hello World</button>
-        <button>Hello World</button>
-        <button>Hello World</button>
+        {page.map((v) => {
+          return (
+            <>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById(dataSection[v]["section_name"])
+                    .scrollIntoView()
+                }
+                key={v}
+                className={selected == v ? "font-bold" : ""}
+              >
+                {v}
+              </button>
+            </>
+          );
+        })}
       </div>
       <button
         onClick={() => setModalIsActive(true)}

@@ -7,13 +7,13 @@ const navBarSlice = createSlice({
   },
   reducers: {
     onHead: (state, action) => {
-      state.status = "Head";
+      state.status = "Home";
     },
     onWhatIDo: (state, action) => {
-      state.status = "WhatIDo";
+      state.status = "What I Do";
     },
     onContact: (state, action) => {
-      state.status = "Contact";
+      state.status = "Contact Me!";
     },
   },
 });

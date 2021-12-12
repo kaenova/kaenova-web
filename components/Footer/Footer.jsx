@@ -7,7 +7,7 @@ function Footer() {
       <p className="tracking-normal text-[14px]">
         Kaenova Mahendra Auditama. 2021.
       </p>
-      <span style={{height:"10px"}} />
+      <span style={{ height: "10px" }} />
     </footer>
   );
 }

@@ -5,8 +5,8 @@ module.exports = {
   ],
   theme: {
     letterSpacing: {
-      heading: '0.305em',
-      normal: '0.105em'
+      heading: "0.305em",
+      normal: "0.105em",
     },
     extend: {
       colors: {

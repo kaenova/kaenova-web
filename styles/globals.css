@@ -8,16 +8,28 @@ html {
 }
 
 html,
-      body,
-      body > div:first-child,
-      div#__next{
-        height: 100%;
-      }
+body,
+body > div:first-child,
+div#__next {
+  height: 100%;
+}
 
 input,
 textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.block_what_i_do {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #f7f7f7;
+  background-color: #353535;
+  height: 35px;
+  border-radius: 9px;
+}
+/* 
+paddingLeft: "20px",
+paddingRight: "20px", */
