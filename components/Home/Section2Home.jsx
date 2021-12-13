@@ -32,7 +32,6 @@ function Section2Home() {
   }, [windowWidth]);
 
   useEffect(() => {
-    console.log("Ini di sec2", inView);
     if (inView) {
       dispatch(onWhatIDo());
     }
@@ -81,7 +80,7 @@ function Section2Home() {
             className="sm:grid sm:grid-cols-2 sm:gap-[75px] sm:items-center sm:w-10/12 sm:max-w-[940px] sm:h-[394px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            // exit={{ opacity: 0 }}
             transition={{ duration: 0.63, ease: "easeInOut" }}
           >
             <div className="hidden sm:block">
@@ -97,7 +96,7 @@ function Section2Home() {
               <h2 className="text-[24px] font-bold mb-[15px] hidden sm:block">
                 {nama}
               </h2>
-              <p className="tracking-normal text-justify">
+              <p className="tracking-normal text-justify text-[14px]">
                 {dataWhatIDo[nama]["deskripsi"]}
               </p>
               <div className="mt-[20px] flex flex-col gap-3 justify-center items-center sm:text-left sm:items-start">
@@ -106,13 +105,13 @@ function Section2Home() {
                 </h2>
                 <a
                   href={dataWhatIDo[nama]["top1_link"]}
-                  className="underline text-center sm:text-left tracking-normal"
+                  className="underline text-center sm:text-left tracking-normal text-[14x]"
                 >
                   {dataWhatIDo[nama]["top1_nama"]}
                 </a>
                 <a
                   href={dataWhatIDo[nama]["top2_link"]}
-                  className="underline text-center sm:text-left tracking-normal"
+                  className="underline text-center sm:text-left tracking-normal text-[14x]"
                 >
                   {dataWhatIDo[nama]["top2_nama"]}
                 </a>
@@ -129,13 +128,13 @@ function Section2Home() {
       <section
         ref={ref}
         id="idx_sec2"
-        className="snap-start h-full relative flex flex-col justify-center items-center pl-[50px] pr-[50px]"
+        className="snap-start h-full relative flex flex-col justify-center items-center px-[30px]"
       >
         <h1 className="text-[24px] font-bold tracking-normal">What I Do?</h1>
         <div className=" mt-[24px] ">
           <button
             onClick={() => setModalIsActive(true)}
-            className="bg-white rounded-[7px] shadow-md min-w-[306px] max-w-[420px] min-h-[43px] flex flex-row flex-grow justify-between items-center pr-[14px] select-none sm:hidden"
+            className="bg-white rounded-[7px] shadow-md min-w-[290px] max-w-[420px] min-h-[43px] flex flex-row flex-grow justify-between items-center pr-[14px] select-none sm:hidden"
           >
             <p className="font-bold text-[14px] tracking-normal ml-[40px]">
               {selected}
@@ -163,7 +162,7 @@ function Section2Home() {
           </div>
         </div>
         <span className="mt-[25px]" />
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {whatIDoVerb.map((v) => (
             <WhatIDoDescAndPhoto nama={v} key={v} visible={selected === v} />
           ))}

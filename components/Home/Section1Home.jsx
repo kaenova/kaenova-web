@@ -21,7 +21,6 @@ function Section1Home() {
   const { ref, inView, entry } = useInView({ threshold: 0.3 });
 
   useEffect(() => {
-    console.log("Ini di sec1", inView);
     if (inView) {
       dispatch(onHead());
     }

@@ -12,7 +12,6 @@ function Section3Home() {
   const { ref, inView, entry } = useInView({ threshold: 0.3 });
 
   useEffect(() => {
-    console.log("Ini di sec3", inView);
     if (inView) {
       dispatch(onContact());
     }
