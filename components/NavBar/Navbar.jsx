@@ -33,6 +33,7 @@ function Navbar() {
       <AnimatePresence>
         {ModalIsActive && (
           <motion.div
+            key={Math.random()}
             className="fixed top-0 w-screen h-screen flex justify-center items-center z-[2] px-[30px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -47,20 +48,18 @@ function Navbar() {
                 <div className="mt-10 grid grid-flow-row text-center gap-4 font-bold">
                   {page.map((v) => {
                     return (
-                      <>
-                        <button
-                          onClick={() => {
-                            document
-                              .getElementById(dataSection[v]["section_name"])
-                              .scrollIntoView();
-                            setModalIsActive(false);
-                          }}
-                          key={v}
-                          className={selected === v ? "font-bold" : ""}
-                        >
-                          {v}
-                        </button>
-                      </>
+                      <button
+                        onClick={() => {
+                          document
+                            .getElementById(dataSection[v]["section_name"])
+                            .scrollIntoView();
+                          setModalIsActive(false);
+                        }}
+                        key={Math.random()}
+                        className={selected === v ? "font-bold" : ""}
+                      >
+                        {v}
+                      </button>
                     );
                   })}
                 </div>
@@ -82,19 +81,17 @@ function Navbar() {
       <div className="fixed bg-white shadow-lg flex flex-row items-end top-0 right-0 w-[450px] h-[50px] justify-between rounded-bl-[18px] pb-[13px] pl-[50px] pr-[30px] tracking-wide select-none invisible sm:visible z-[1]">
         {page.map((v) => {
           return (
-            <>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById(dataSection[v]["section_name"])
-                    .scrollIntoView()
-                }
-                key={v}
-                className={[(selected == v) ? "font-bold tracking-normal text-[14px]" : "tracking-normal text-[14px]"]}
-              >
-                {v}
-              </button>
-            </>
+            <button
+              onClick={() =>
+                document
+                  .getElementById(dataSection[v]["section_name"])
+                  .scrollIntoView()
+              }
+              key={Math.random()}
+              className={[(selected == v) ? "font-bold tracking-normal text-[14px]" : "tracking-normal text-[14px]"]}
+            >
+              {v}
+            </button>
           );
         })}
       </div>
