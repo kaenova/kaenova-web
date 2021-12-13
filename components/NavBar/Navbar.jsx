@@ -90,7 +90,7 @@ function Navbar() {
                     .scrollIntoView()
                 }
                 key={v}
-                className={selected == v ? "font-bold" : ""}
+                className={[(selected == v) ? "font-bold tracking-normal text-[14px]" : "tracking-normal text-[14px]"]}
               >
                 {v}
               </button>

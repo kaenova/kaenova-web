@@ -12,6 +12,7 @@ body,
 body > div:first-child,
 div#__next {
   height: 100%;
+  font-weight: 400;
 }
 
 input,

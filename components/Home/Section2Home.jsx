@@ -78,7 +78,7 @@ function Section2Home() {
         {visible && (
           <motion.div
             key={key}
-            className="sm:grid sm:grid-cols-2 sm:gap-[75px] sm:items-center sm:w-10/12 sm:max-w-[940px]"
+            className="sm:grid sm:grid-cols-2 sm:gap-[75px] sm:items-center sm:w-10/12 sm:max-w-[940px] sm:h-[394px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
