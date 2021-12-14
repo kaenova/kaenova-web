@@ -39,7 +39,7 @@ function Section2Home() {
 
   const WhatIDoItem = ({ nama, isSelected, onClick }) => {
     return (
-      <>
+      <AnimatePresence exitBeforeEnter>
         <button
           onClick={onClick}
           className="relative flex flex-col justify-center items-center"
@@ -67,58 +67,60 @@ function Section2Home() {
             <motion.p className="text-[14px] font-bold">{nama}</motion.p>
           )}
         </button>
-      </>
+      </AnimatePresence>
     );
   };
 
-  const WhatIDoDescAndPhoto = ({ nama, key, visible }) => {
+  const WhatIDoDescAndPhoto = ({ nama, visible }) => {
     return (
       <>
-        {visible && (
-          <motion.div
-            key={key}
-            className="sm:grid sm:grid-cols-2 sm:gap-[75px] sm:items-center sm:w-10/12 sm:max-w-[940px] sm:h-[394px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            // exit={{ opacity: 0 }}
-            transition={{ duration: 0.63, ease: "easeInOut" }}
-          >
-            <div className="hidden sm:block">
-              {" "}
-              {/* Ini Bagian Kiri */}
-              <div className="w-full h-full bg-blue-500">
-                <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
+        <AnimatePresence exitBeforeEnter>
+          {visible && (
+            <motion.div
+              key={Math.random()}
+              className="sm:grid sm:grid-cols-2 sm:gap-[75px] sm:items-center sm:w-10/12 sm:max-w-[940px] sm:h-[394px]"
+              // initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.63, ease: "easeInOut" }}
+            >
+              <div className="hidden sm:block">
+                {" "}
+                {/* Ini Bagian Kiri */}
+                <div className="w-full h-full bg-black-template select-none shadow-md">
+                  <img className="shadow-md" src="https://picsum.photos/seed/picsum/200/300" alt="" />
+                </div>
               </div>
-            </div>
-            <div className="max-w-[420px]">
-              {" "}
-              {/* Ini Bagian Kanan */}
-              <h2 className="text-[24px] font-bold mb-[15px] hidden sm:block">
-                {nama}
-              </h2>
-              <p className="tracking-normal text-justify text-[14px]">
-                {dataWhatIDo[nama]["deskripsi"]}
-              </p>
-              <div className="mt-[20px] flex flex-col gap-3 justify-center items-center sm:text-left sm:items-start">
-                <h2 className="tracking-normal font-bold text-center text-[24px] sm:text-left">
-                  Top Projects
+              <div className="max-w-[420px]">
+                {" "}
+                {/* Ini Bagian Kanan */}
+                <h2 className="text-[24px] font-bold mb-[15px] hidden sm:block tracking-normal">
+                  {nama}
                 </h2>
-                <a
-                  href={dataWhatIDo[nama]["top1_link"]}
-                  className="underline text-center sm:text-left tracking-normal text-[14x]"
-                >
-                  {dataWhatIDo[nama]["top1_nama"]}
-                </a>
-                <a
-                  href={dataWhatIDo[nama]["top2_link"]}
-                  className="underline text-center sm:text-left tracking-normal text-[14x]"
-                >
-                  {dataWhatIDo[nama]["top2_nama"]}
-                </a>
+                <p className="tracking-normal text-justify text-[14px]">
+                  {dataWhatIDo[nama]["deskripsi"]}
+                </p>
+                <div className="mt-[20px] flex flex-col gap-3 justify-center items-center sm:text-left sm:items-start">
+                  <h2 className="tracking-normal font-bold text-center text-[24px] sm:text-left">
+                    Top Projects
+                  </h2>
+                  <a
+                    href={dataWhatIDo[nama]["top1_link"]}
+                    className="underline text-center sm:text-left tracking-normal text-[14x]"
+                  >
+                    {dataWhatIDo[nama]["top1_nama"]}
+                  </a>
+                  <a
+                    href={dataWhatIDo[nama]["top2_link"]}
+                    className="underline text-center sm:text-left tracking-normal text-[14x]"
+                  >
+                    {dataWhatIDo[nama]["top2_nama"]}
+                  </a>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </>
     );
   };
@@ -148,10 +150,10 @@ function Section2Home() {
           </button>
           <div className="hidden sm:block">
             <AnimateSharedLayout>
-              <div className="ml-2 mr-2 min-w-[500px] max-w-[710px] w-[100vw] h-[42px] bg-white shadow-md rounded-[7px] flex flex-row justify-between pl-[30px] pr-[30px] items-center">
+              <div className="ml-2 mr-2 min-w-[500px] max-w-[710px] w-[100vw] h-[42px] bg-white shadow-md rounded-[7px] flex flex-row justify-between pl-[30px] pr-[30px] items-center select-none">
                 {whatIDoVerb.map((v) => (
                   <WhatIDoItem
-                    key={v}
+                    key={v + "1"}
                     nama={v}
                     isSelected={selected === v}
                     onClick={() => setSelected(v)}
@@ -162,11 +164,9 @@ function Section2Home() {
           </div>
         </div>
         <span className="mt-[25px]" />
-        <AnimatePresence initial={false}>
-          {whatIDoVerb.map((v) => (
-            <WhatIDoDescAndPhoto nama={v} key={v} visible={selected === v} />
-          ))}
-        </AnimatePresence>
+        {whatIDoVerb.map((v) => (
+          <WhatIDoDescAndPhoto key={v + "2"} nama={v} visible={selected === v} />
+        ))}
         <div className="absolute bottom-[20px] w-full flex flex-col justify-center">
           <button
             onClick={() => document.getElementById("idx_sec3").scrollIntoView()}
