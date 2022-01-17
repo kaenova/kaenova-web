@@ -10,7 +10,9 @@ html {
 html,
 body,
 body > div:first-child,
-div#__next {
+div#__next,
+._main_comp
+{
   height: 100%;
   font-weight: 400;
 }

@@ -14,9 +14,13 @@ function Middleware({ children }) {
         />
       </Head>
       <Provider store={GlobalStore}>
-        <Navbar />
-        {children}
-        <Footer />
+        <body className="">
+          <Navbar />
+          <div className="_main_comp">
+            {children}
+            <Footer />
+          </div>
+        </body>
       </Provider>
     </>
   );

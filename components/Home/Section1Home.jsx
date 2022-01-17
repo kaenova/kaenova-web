@@ -99,7 +99,7 @@ function Section1Home() {
           onClick={() => document.getElementById("idx_sec2").scrollIntoView()}
           className="flex flex-col justify-center items-center select-none"
         >
-          <p className="text-[14px] text-center">What I Do?</p>
+          <p className="text-[14px] text-center">Projects</p>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <motion.img
               animate={{ opacity: 0.1 }}

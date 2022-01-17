@@ -78,22 +78,30 @@ function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="fixed bg-white shadow-lg flex flex-row items-end top-0 right-0 w-[450px] h-[50px] justify-between rounded-bl-[18px] pb-[13px] pl-[50px] pr-[30px] tracking-wide select-none invisible sm:visible z-[1]">
-        {page.map((v) => {
-          return (
-            <button
-              onClick={() =>
-                document
-                  .getElementById(dataSection[v]["section_name"])
-                  .scrollIntoView()
-              }
-              key={Math.random()}
-              className={[(selected == v) ? "font-bold tracking-normal text-[14px]" : "tracking-normal text-[14px]"]}
-            >
-              {v}
-            </button>
-          );
-        })}
+      <div className=" fixed bg-white shadow-lg flex flex-col top-0 left-0 w-[93px] h-full justify-between items-center tracking-wide select-none invisible sm:visible z-[1] py-2">
+        <img src="/Logo.svg" alt="asds" />
+        <div className="grid grid-flow-row justify-center items-center gap-7 mb-12">
+          {page.map((v) => {
+            return (
+              <div className="flex flex-row items-center group">
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById(dataSection[v]["section_name"])
+                      .scrollIntoView()
+                  }
+                  key={Math.random()}
+                  className={[(selected == v) ? "font-normal text-center tracking-normal text-[24px] w-[43px] h-[43px] bg-[#C4C4C4] rounded-[7px] box-content" : "font-normal  text-center tracking-normal text-[24px] w-[43px] h-[43px]  box-content"]}
+                >
+                  {v[0]}
+                </button>
+                <button className="bg-white fixed p-2 text-[18px] z-0 scale-0 group-hover:scale-100 left-[100px] rounded-md shadow-md transition-all duration-100">
+                {v}
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <button
         onClick={() => setModalIsActive(true)}

@@ -10,7 +10,7 @@ const navBarSlice = createSlice({
       state.status = "Home";
     },
     onWhatIDo: (state, action) => {
-      state.status = "What I Do?";
+      state.status = "Projects";
     },
     onContact: (state, action) => {
       state.status = "Contact Me!";
