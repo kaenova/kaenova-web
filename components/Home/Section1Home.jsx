@@ -18,7 +18,7 @@ function Section1Home() {
 
   const dispatch = useDispatch(selectNavBar);
 
-  const { ref, inView, entry } = useInView({ threshold: 0.3 });
+  const { ref, inView, entry } = useInView({ threshold: 0.5 });
 
   useEffect(() => {
     if (inView) {

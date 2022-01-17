@@ -16,7 +16,7 @@ function Middleware({ children }) {
       <Provider store={GlobalStore}>
         <body className="">
           <Navbar />
-          <div className="_main_comp">
+          <div className="_main_comp md:pl-[93px]">
             {children}
             <Footer />
           </div>

@@ -9,7 +9,7 @@ const navBarSlice = createSlice({
     onHead: (state, action) => {
       state.status = "Home";
     },
-    onWhatIDo: (state, action) => {
+    onProject: (state, action) => {
       state.status = "Projects";
     },
     onContact: (state, action) => {
@@ -19,7 +19,7 @@ const navBarSlice = createSlice({
 });
 
 // Export Setter
-export const { onContact, onHead, onWhatIDo } = navBarSlice.actions;
+export const { onContact, onHead, onProject } = navBarSlice.actions;
 
 // Buat store yang nge bind "nama" slice ke slice fungsinya ini dilakukan di store.js
 
