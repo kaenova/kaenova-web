@@ -110,11 +110,13 @@ function renderProjectDesktop() {
                   )
                 })}
               </p>
-
-              <a href={data[idx]["link"]} className="bg-white p-3 shadow-md rounded-md w-[160px] flex flex-row items-center justify-center self-center font-bold gap-3">
+              
+              
+              <a href={data[idx]["link"]} className={"bg-white p-3 shadow-md rounded-md w-[160px] flex flex-row items-center justify-center self-center font-bold gap-3 " + [(data[idx]["link"] == "") && "invisible"]}>
                 More Details
                 <img src="/arrow-forward-outline.svg" className="w-[20px]" alt="" />
               </a>
+              
             </div>
           </div>
         )
