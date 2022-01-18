@@ -60,9 +60,12 @@ function renderProjectsMobile() {
           </p>
 
           {/* Details Link */}
+          {
+          (data[idx]["link"] != "") &&
           <a href={data[idx]["link"]} className="bg-white p-3 mt-3 shadow-md rounded-md w-[147px] flex flex-row items-center justify-center">
             More Details
           </a>
+          }
         </div>
       </div>
     </>
