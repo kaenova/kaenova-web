@@ -18,7 +18,7 @@ function Section1Home() {
 
   const dispatch = useDispatch(selectNavBar);
 
-  const { ref, inView, entry } = useInView({ threshold: 0.5 });
+  const { ref, inView, entry } = useInView({ threshold: 0.1 });
 
   useEffect(() => {
     if (inView) {
@@ -57,9 +57,11 @@ function Section1Home() {
           <motion.h2
             initial={{
               letterSpacing: "0.4em",
+              opacity: 0,
             }}
             animate={{
               letterSpacing: "0.105em",
+              opacity: 1
             }}
             transition={{ duration: 1, ease: "easeInOut" }}
             className="text-center tracking-normal"
@@ -69,12 +71,14 @@ function Section1Home() {
           <motion.h2
             initial={{
               letterSpacing: "0.4em",
+              opacity: 0
             }}
             animate={{
               letterSpacing: "0.105em",
+              opacity: 1
             }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="text-center tracking-normal select-none"
+            className="text-center whitespace-nowrap tracking-normal select-none"
           >
             Backend | Frontend | Data Engineer
           </motion.h2>

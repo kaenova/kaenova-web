@@ -43,10 +43,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+    {
+      Loading ?
       <LoadingScreen loading={Loading} />
+      :
       <Middleware>
         <Component {...pageProps} />
       </Middleware>
+    }
     </>
   );
 }

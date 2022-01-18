@@ -9,6 +9,17 @@ function renderProjectsMobile() {
   const max = data.length
   return (
     <>
+      <div className="flex flex-col items-center md:hidden">
+        <h1 className="font-bold tracking-normal text-[24px] md:text-[28px]">
+          Projects
+        </h1>
+        <a href="https://github.com/kaenova" className="bg-white w-[300px] h-[45px] rounded-full shadow-md flex flex-row justify-center items-center gap-5 mt-4 select-none">
+          <img src="/github.svg" alt="" className="w-[24px]" />
+          <p className="text-[12px] font-bold tracking-normal">
+            Checkout my public projects
+          </p>
+        </a>
+      </div>
       {/* Mobile view */}
       <div className="md:hidden flex flex-col items-center h-full">
         <div className="flex flex-row w-[350px] justify-center mt-3 select-none">
@@ -49,7 +60,7 @@ function renderProjectsMobile() {
           </p>
 
           {/* Details Link */}
-          <a href={data[idx]["link"]} className="bg-white p-3 shadow-md rounded-md w-[147px] flex flex-row items-center justify-center">
+          <a href={data[idx]["link"]} className="bg-white p-3 mt-3 shadow-md rounded-md w-[147px] flex flex-row items-center justify-center">
             More Details
           </a>
         </div>
@@ -61,12 +72,23 @@ function renderProjectsMobile() {
 function renderProjectDesktop() {
   return (
     <div className="hidden md:block mt-3">
+      <div className="flex flex-col items-center md:items-end md:flex-row-reverse md:gap-5 md:self-end">
+        <h1 className="font-bold tracking-normal text-[24px] md:text-[28px]">
+          Projects
+        </h1>
+        <a href="https://github.com/kaenova" className="bg-white w-[300px] h-[45px] rounded-full shadow-md flex flex-row justify-center items-center gap-5 mt-4 select-none">
+          <img src="/github.svg" alt="" className="w-[24px]" />
+          <p className="text-[12px] font-bold tracking-normal">
+            Checkout my public projects
+          </p>
+        </a>
+      </div>
       {/* Start Component */}
       {data.map((v, idx) => {
         return (
           <div className={"h-[383px] flex flex-row gap-2 mb-11 " + [(idx % 2 != 0) && "flex-row-reverse"]}>
-            <div className="bg-black-template flex flex-row items-center justify-center rounded-md p-3 mr-5">
-              <img className="object-cover h-[383px]" src={data[idx]["img"]} alt="" />
+            <div className="flex flex-row items-center justify-center rounded-md p-3 mr-5">
+              <img className="object-cover h-[300px] border-4 border-black-template rounded-md" src={data[idx]["img"]} alt="" />
             </div>
             <div className="flex flex-col justify-between max-w-[800px]">
               <h2 className="font-bold tracking-normal text-[30px]">
@@ -100,7 +122,7 @@ function renderProjectDesktop() {
 
 function Section2Home() {
   const dispatch = useDispatch(selectNavBar);
-  const { ref, inView, entry } = useInView({ threshold: 0.5 })
+  const { ref, inView, entry } = useInView({ threshold: 0.2 })
 
   useEffect(() => {
     if (inView) {
@@ -115,18 +137,7 @@ function Section2Home() {
         id="idx_sec2"
         className="snap-start static px-[25px] h-full md:h-fit"
       >
-        <div className="relative top-[20px] flex flex-col items-center h-full w-full">
-          <div className="flex flex-col items-center md:items-end md:flex-row-reverse md:gap-5 md:self-end">
-            <h1 className="font-bold tracking-normal text-[24px] md:text-[28px]">
-              Projects
-            </h1>
-            <a href="https://github.com/kaenova" className="bg-white w-[300px] h-[45px] rounded-full shadow-md flex flex-row justify-center items-center gap-5 mt-4 select-none">
-              <img src="/github.svg" alt="" className="w-[24px]" />
-              <p className="text-[12px] font-bold tracking-normal">
-                Checkout my public projects
-              </p>
-            </a>
-          </div>
+        <div className="mt-[20px] flex flex-col items-center h-full w-full">
           {renderProjectsMobile()}
           {renderProjectDesktop()}
         </div>

@@ -2,29 +2,23 @@ const data = [
   {
     judul: "Antri.In",
     img: "/Antri.In.png",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima inventore fuga impedit molestiae reiciendis facilis laboriosam excepturi possimus, illum a, tempora natus, veniam nesciunt. Facere, molestiae odio. Culpa, blanditiis magnam! A beatae impedit incidunt, obcaecati, repellendus deleniti possimus laudantium pariatur eum molestias tenetur, voluptatum quod placeat. Deleniti fugiat vero, recusandae laudantium nostrum numquam quo quidem autem",
-    charge: ["asd", "asd", "asd"],
-    link: ""
+    desc: "Antri.In is an open source, localize, easy to implement queue management system. With ngrok integration, you can integrate this application with your private network and can be accessed by everyone.",
+    charge: ["Project Manager", "Backend Developer", "Frontend API Developer", "Infrastructure/CI/CD Developer"],
+    link: "https://antri-in.vercel.app/"
   },
   {
-    judul: "Antri.In",
-    img: "/Antri.In.png",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima inventore fuga impedit molestiae reiciendis facilis laboriosam excepturi possimus, illum a, tempora natus, veniam nesciunt. Facere, molestiae odio. Culpa, blanditiis magnam! A beatae impedit incidunt, obcaecati, repellendus deleniti possimus laudantium pariatur eum molestias tenetur, voluptatum quod placeat. Deleniti fugiat vero, recusandae laudantium nostrum numquam quo quidem autem",
-    charge: ["asd", "asd", "asd"],
-    link: ""
+    judul: "iTalase",
+    img: "/italase.png",
+    desc: "iTalase is mobile application for small and medium business to help records stocks, transactions, and debts with flexible automated report.",
+    charge: ["Backend development", "Data engineering", "Continues Integration Engineer"],
+    link: "https://italase.site/"
   }, {
-    judul: "Antri.In",
-    img: "/Antri.In.png",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima inventore fuga impedit molestiae reiciendis facilis laboriosam excepturi possimus, illum a, tempora natus, veniam nesciunt. Facere, molestiae odio. Culpa, blanditiis magnam! A beatae impedit incidunt, obcaecati, repellendus deleniti possimus laudantium pariatur eum molestias tenetur, voluptatum quod placeat. Deleniti fugiat vero, recusandae laudantium nostrum numquam quo quidem autem",
-    charge: ["asd", "asd", "asd"],
+    judul: "Indonesian Digital Wallet Sentiment Analysis Using CNN And LSTM Method",
+    img: "/Research.png",
+    desc: "A Research with an approach combination of deep learning and natural language processing on analyzing Indonesian Digital Wallet Review Sentiment using stacked CNN and LSTM Architecture. We analyze four digital wallet namely DANA, OVO, LinkAja, and Sakuku.",
+    charge: ["Data processing from a RAW Data", "Data engineering to a Model", "Modelling and Optimizing Models"],
     link: ""
-  }, {
-    judul: "Antri.In",
-    img: "/Antri.In.png",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima inventore fuga impedit molestiae reiciendis facilis laboriosam excepturi possimus, illum a, tempora natus, veniam nesciunt. Facere, molestiae odio. Culpa, blanditiis magnam! A beatae impedit incidunt, obcaecati, repellendus deleniti possimus laudantium pariatur eum molestias tenetur, voluptatum quod placeat. Deleniti fugiat vero, recusandae laudantium nostrum numquam quo quidem autem",
-    charge: ["asd", "asd", "asd"],
-    link: ""
-  },
+  }
 ]
 
 
