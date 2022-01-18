@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+._main_comp
+{
+  height: 100%;
+  font-weight: 400;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.block_what_i_do {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #f7f7f7;
+  background-color: #353535;
+  height: 35px;
+  border-radius: 9px;
+}
+/* 
+paddingLeft: "20px",
+paddingRight: "20px", */

@@ -1,51 +1,58 @@
-import 'tailwindcss/tailwind.css'
-import 'public/global.css'
-import React, { useState } from 'react'
-import Router, { useRouter } from 'next/router'
-import { motion, AnimatePresence } from 'framer-motion'
+import Middleware from "../components/Middleware/Middleware";
+import "../styles/globals.css";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
+import { motion } from 'framer-motion'
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 
+
+/*
+TODO:
+  1. Buat loading page?
+*/
 
 function MyApp({ Component, pageProps }) {
+  const [Loading, setLoading] = useState(true)
 
-  // Page Transition
-  var [loading, setLoading] = useState(false)
+  const router = useRouter()
 
-  Router.events.on('routeChangeStart', () => {
-    setLoading(true)
-  })
-
-  Router.events.on('routeChangeComplete', () => {
-    if (!loading) {
-      setTimeout(() => { setLoading(false) }, 3000)
+  useEffect(() => {
+    const handleStart = (url) => {
+      setLoading(true)
     }
-  })
+    const handleStop = () => {
+      setLoading(false)
+    }
+
+    router.events.on('routeChangeStart', handleStart)
+    router.events.on('routeChangeComplete', handleStop)
+    router.events.on('routeChangeError', handleStop)
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart)
+      router.events.off('routeChangeComplete', handleStop)
+      router.events.off('routeChangeError', handleStop)
+    }
+  }, [router])
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000)
+    return () => {
+    }
+  }, [])
 
   return (
     <>
-      {/* Main Component */}
-      <AnimatePresence exitBeforeEnter>
-        {
-          !loading &&
-          <motion.div
-            className="sticky top-0 z-0"
-            initial={{
-              opacity: 0
-            }}
-            animate={{
-              opacity: 1
-            }}
-            exit={{
-
-              opacity: 0
-            }}
-            transition={{ easings: "linear" }}
-          >
-            <Component {...pageProps} />
-          </motion.div>
-        }
-      </AnimatePresence>
+    {
+      Loading ?
+      <LoadingScreen loading={Loading} />
+      :
+      <Middleware>
+        <Component {...pageProps} />
+      </Middleware>
+    }
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
