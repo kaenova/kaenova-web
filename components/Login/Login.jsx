@@ -33,8 +33,8 @@ function Login() {
 
   const handleLogout = async (e) => {
     e.preventDefault()
-    cookies.remove("TKN")
-    if (cookies.get("TKN") == undefined){
+    cookies.remove("KAE_TOKEN")
+    if (cookies.get("KAE_TOKEN") == undefined){
       setAPICallsSuccess(undefined)
     }
   }
@@ -46,7 +46,7 @@ function Login() {
   }
 
   useEffect(() => {
-    let isLogged = cookies.get("TKN")
+    let isLogged = cookies.get("KAE_TOKEN")
     if (isLogged != undefined){
       setAPICallsSuccess(true)
     }
