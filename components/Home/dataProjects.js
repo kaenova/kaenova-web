@@ -4,7 +4,7 @@ const data = [
     img: "/Antri.In.png",
     desc: "Antri.In is an open source, localize, easy to implement queue management system. With ngrok integration, you can integrate this application with your private network and can be accessed by everyone.",
     charge: ["Project Manager", "Backend Developer", "Frontend API Developer", "Infrastructure/CI/CD Developer"],
-    link: "https://antri-in.vercel.app/"
+    link: "https://antriin.kaenova.my.id/"
   },
   {
     judul: "iTalase",
