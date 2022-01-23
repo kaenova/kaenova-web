@@ -33,6 +33,10 @@ function Login() {
 
   const handleLogout = async (e) => {
     e.preventDefault()
+    cookies.remove("TKN")
+    if (cookies.get("TKN") == undefined){
+      setAPICallsSuccess(undefined)
+    }
   }
 
   const renderResponse = () => {
