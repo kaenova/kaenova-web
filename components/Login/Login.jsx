@@ -2,6 +2,7 @@ import React, { useState, createRef, useEffect } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import axios from 'axios'
 import Cookies from 'universal-cookie';
+import jwtParser from '../../utils/jwtParser';
 
 function Login() {
   const cookies = new Cookies();
@@ -25,7 +26,7 @@ function Login() {
 
     try {
       let response =  await axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/auth/`, varJsonData)
-      cookies.set("KAE_TOKEN", response.data["Data"]["access_token"])
+      cookies.set("KAE_TOKEN", response.data["Data"]["access_token"], {domain: ".kaenova.my.id", secure: true, path:'/', expires: new Date(jwtParser(response.data["Data"]["access_token"])["exp"] * 1000)})
       setAPICallsSuccess(true)
     } catch (e) {
       setAPICallsSuccess(false)
