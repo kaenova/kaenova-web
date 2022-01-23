@@ -25,6 +25,7 @@ function Login() {
 
     try {
       let response =  await axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/auth/`, varJsonData)
+      cookies.set("KAE_TOKEN", response.data["Data"]["access_token"])
       setAPICallsSuccess(true)
     } catch (e) {
       setAPICallsSuccess(false)
