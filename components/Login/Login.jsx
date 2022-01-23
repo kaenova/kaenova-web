@@ -35,7 +35,7 @@ function Login() {
 
   const handleLogout = async (e) => {
     e.preventDefault()
-    cookies.remove("KAE_TOKEN")
+    cookies.remove("KAE_TOKEN", {domain: ".kaenova.my.id", secure: true, path:'/', expires: new Date(0)})
     if (cookies.get("KAE_TOKEN") == undefined){
       setAPICallsSuccess(undefined)
     }
