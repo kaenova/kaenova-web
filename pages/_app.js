@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { motion } from 'framer-motion'
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
+import Head from "next/head";
 
 
 /*
@@ -43,14 +44,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-    {
-      Loading ?
-      <LoadingScreen loading={Loading} />
-      :
+    <Head>
+    <title>KMA</title>
+    </Head>
+      <LoadingScreen loading={Loading && (router.pathname == "/")} />
       <Middleware>
         <Component {...pageProps} />
       </Middleware>
-    }
     </>
   );
 }

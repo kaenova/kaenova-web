@@ -37,7 +37,7 @@ function renderProjectsMobile() {
         <div className="h-full flex flex-col justify-center items-center">
           {/* IMG */}
           <div className="border-2 border-black-template w-[360px] rounded-md mt-3 select-none">
-            <img src={data[idx]["img"]} alt="" srcset="" className="object-fill rounded-md" />
+            <img src={data[idx]["img"]} alt="" className="object-fill rounded-md" />
           </div>
           {/*  Judul */}
           <h2 className="font-bold tracking-normal text-[24px] mt-3">
@@ -52,9 +52,9 @@ function renderProjectsMobile() {
           {/* In Charge of */}
           <p className="w-full mt-3 text-[14px]">
             Kaenova is in charge of:
-            {data[idx]["charge"].map(v => {
+            {data[idx]["charge"].map((v, idx) => {
               return (
-                <li>{v}</li>
+                <li key={idx}>{v}</li>
               )
             })}
           </p>
@@ -89,7 +89,7 @@ function renderProjectDesktop() {
       {/* Start Component */}
       {data.map((v, idx) => {
         return (
-          <div className={"h-[383px] flex flex-row gap-2 mb-11 " + [(idx % 2 != 0) && "flex-row-reverse"]}>
+          <div key={idx} className={"h-[383px] flex flex-row gap-2 mb-11 " + [(idx % 2 != 0) && "flex-row-reverse"]}>
             <div className="flex flex-row items-center justify-center rounded-md p-3 mr-5">
               <img className="object-cover h-[300px] border-4 border-black-template rounded-md" src={data[idx]["img"]} alt="" />
             </div>
@@ -104,9 +104,9 @@ function renderProjectDesktop() {
 
               <p className="text-[14px]">
                 Kaenova is in charge of:
-                {data[idx]["charge"].map(v => {
+                {data[idx]["charge"].map((v, idx) => {
                   return (
-                    <li>{v}</li>
+                    <li key={idx}>{v}</li>
                   )
                 })}
               </p>
