@@ -2,9 +2,8 @@ import Middleware from "../components/Middleware/Middleware";
 import "../styles/globals.css";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import { motion } from 'framer-motion'
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
-import Head from "next/head";
+import { NextSeo } from 'next-seo';
 
 
 /*
@@ -44,13 +43,27 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-    <Head>
-    <title>KMA</title>
-    </Head>
+      <NextSeo
+        title="KMA"
+        description="Kaenova's portfolio and personal platform. Kaneova is a Software Engineer and Data Engineer studying in Telkom University. He likes to explore new technology."
+        openGraph={
+          {
+            title: "KMA: Homepage",
+            description: "Kaenova's portfolio and personal platform. Kaneova is a Software Engineer and Data Engineer studying in Telkom University. He likes to explore new technology.",
+            url: "https://kaenova.my.id",
+            images: [{url: "https://kaenova.my.id/SEO.png"}],
+            site_name: "KMA"
+          }
+        }
+      />
+      {
+      Loading ?
       <LoadingScreen loading={Loading && (router.pathname == "/")} />
+      :
       <Middleware>
         <Component {...pageProps} />
       </Middleware>
+    }
     </>
   );
 }
