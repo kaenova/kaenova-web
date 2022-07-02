@@ -108,6 +108,16 @@ function Section1Home() {
               <img className="w-[29px] h-[29px]" src="/twitter.svg" alt="" />
             </motion.a>
           </div>
+          <div className=" flex flex-row justify-center mt-[28px] select-none">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://ghost.kaenova.my.id"
+              className="bg-white shadow-md rounded-[11px] h-[47.76px] flex flex-row justify-center items-center p-3"
+            >
+              <img src="https://ghost.org/images/logos/logo-black-1.png" width={100} alt="" />
+            </motion.a>
+          </div>
         </div>
       </div>
       <div className="absolute bottom-[40px] w-full flex flex-col justify-center">
