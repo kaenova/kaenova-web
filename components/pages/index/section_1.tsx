@@ -23,7 +23,11 @@ function IndexSection1() {
         Web Developer • ML / DevOps Engineer Enthusiast{" "}
       </H3Fill>
 
-      <ElevatedButton text="More Info" className="mt-[20px]" />
+      <div className="bg-secondarydark p-2 rounded-[5px] flex flex-row justify-center mt-5">
+      <H3Fill className="text-center">Web currently under development</H3Fill>
+      </div>
+
+      {/* <ElevatedButton text="More Info" className="mt-[20px]" /> */}
     </div>
   );
 }
