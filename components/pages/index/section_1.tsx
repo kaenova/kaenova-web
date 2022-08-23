@@ -1,4 +1,5 @@
 import React from "react";
+import { useCheckMobile } from "../../../utils/is_mobile";
 import Brand from "../../typography/brand";
 import H1Fill from "../../typography/h1_fill";
 import H1Outline from "../../typography/h1_outline";
@@ -6,6 +7,8 @@ import H3Fill from "../../typography/h3_fill";
 import NormalText from "../../typography/normal_text";
 
 function IndexSection1() {
+  const isMobile = useCheckMobile();
+
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="relative">
@@ -28,14 +31,16 @@ function IndexSection1() {
           <H3Fill className="text-center">
             Web currently under development
           </H3Fill>
-          <span className="flex flex-row justify-center gap-2">
-            <NormalText className="text-center">Click the</NormalText>
-            <img
-              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
-              width={20}
-              height={20}
-            />
-          </span>
+          {!isMobile && (
+            <span className="flex flex-row justify-center gap-2">
+              <NormalText className="text-center">Click the</NormalText>
+              <img
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
+                width={20}
+                height={20}
+              />
+            </span>
+          )}
         </div>
 
         {/* <ElevatedButton text="More Info" className="mt-[20px]" /> */}

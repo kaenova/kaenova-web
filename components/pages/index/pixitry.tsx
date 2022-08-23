@@ -1,16 +1,12 @@
-import {
-  Container,
-  Sprite,
-  Stage,
-  useApp,
-  useTick,
-} from "@inlet/react-pixi/legacy";
+import { Sprite, Stage, useApp, useTick, Container } from "@inlet/react-pixi";
+import * as PIXI from "pixi.js";
 import { InteractionEvent, Point } from "pixi.js";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useWindowSize } from "../../../utils/window_size";
 
-function PixiTry() {
+function PixiTry(): JSX.Element {
   const windowSize = useWindowSize();
+  const [Active, setActive] = useState(false);
 
   return (
     <Stage
@@ -61,16 +57,19 @@ function FlashLight() {
   });
 
   return (
-    <Sprite
-      image={
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/White_Circle.svg/2048px-White_Circle.svg.png"
-      }
-      scale={{ x: 0.1, y: 0.1 }}
-      alpha={0.3}
-      x={Position.x}
-      y={Position.y}
-      anchor={0.5}
-    />
+    // @ts-ignore
+    <Container filters={[new PIXI.filters.BlurFilter(20)]}>
+      <Sprite
+        image={
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/White_Circle.svg/2048px-White_Circle.svg.png"
+        }
+        scale={{ x: 0.05, y: 0.05 }}
+        alpha={0.1}
+        x={Position.x}
+        y={Position.y}
+        anchor={0.5}
+      />
+    </Container>
   );
 }
 
@@ -121,8 +120,8 @@ function MarioBox() {
     setSpriteTexture("https://art.pixilart.com/0433de3a9dca4b9.png");
     setTimeout(() => {
       // @ts-ignore
-      ref.current.visible = false
-    }, 1000)
+      ref.current.visible = false;
+    }, 1000);
   }
 
   return (
