@@ -26,7 +26,6 @@ function IndexSection1() {
         <H3Fill className="mt-3">
           Web Developer • ML / DevOps Engineer Enthusiast{" "}
         </H3Fill>
-
         <div className="bg-secondarydark p-2 rounded-[5px] flex flex-col justify-center mt-5">
           <H3Fill className="text-center">
             Web currently under development
@@ -42,7 +41,6 @@ function IndexSection1() {
             </span>
           )}
         </div>
-
         {/* <ElevatedButton text="More Info" className="mt-[20px]" /> */}
       </div>
     </div>

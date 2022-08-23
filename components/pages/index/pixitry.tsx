@@ -6,7 +6,6 @@ import { useWindowSize } from "../../../utils/window_size";
 
 function PixiTry(): JSX.Element {
   const windowSize = useWindowSize();
-  const [Active, setActive] = useState(false);
 
   return (
     <Stage

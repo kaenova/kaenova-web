@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import LimitSizeLayout from "../components/layout/limit_size";
 import MainLayout from "../components/layout/main_layout";
 import NormalPadding from "../components/layout/normal_padding";
