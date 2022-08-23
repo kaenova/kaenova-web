@@ -1,9 +1,4 @@
-import { Container, Sprite, Stage, useTick } from "@inlet/react-pixi";
-import Image from "next/image";
 import React from "react";
-import { useWindowSize } from "../../../utils/window_size";
-import LimitSizeLayout from "../../layout/limit_size";
-import NormalPadding from "../../layout/normal_padding";
 import Brand from "../../typography/brand";
 import H1Fill from "../../typography/h1_fill";
 import H1Outline from "../../typography/h1_outline";
@@ -35,7 +30,7 @@ function IndexSection1() {
           </H3Fill>
           <span className="flex flex-row justify-center gap-2">
             <NormalText className="text-center">Click the</NormalText>
-            <Image
+            <img
               src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
               width={20}
               height={20}

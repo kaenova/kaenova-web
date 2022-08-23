@@ -11,6 +11,7 @@
   "dependencies": {
     "@inlet/react-pixi": "^6.8.0",
     "autoprefixer": "^10.4.8",
+    "framer-motion": "^7.2.1",
     "next": "12.2.5",
     "pixi.js": "^6.5.1",
     "pixi.js-legacy": "^6.5.1",
