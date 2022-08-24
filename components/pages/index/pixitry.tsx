@@ -59,9 +59,7 @@ function FlashLight() {
     // @ts-ignore
     <Container filters={[new PIXI.filters.BlurFilter(20)]}>
       <Sprite
-        image={
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/White_Circle.svg/2048px-White_Circle.svg.png"
-        }
+        image={"flashlight"}
         scale={{ x: 0.05, y: 0.05 }}
         alpha={0.1}
         x={Position.x}
@@ -94,7 +92,7 @@ function MarioBox() {
   });
 
   const [SpriteTexture, setSpriteTexture] = useState(
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
+    "box"
   );
 
   useTick((delta) => {
@@ -116,7 +114,7 @@ function MarioBox() {
   });
 
   function handleClick(e: InteractionEvent) {
-    setSpriteTexture("https://art.pixilart.com/0433de3a9dca4b9.png");
+    setSpriteTexture("coin");
     setTimeout(() => {
       // @ts-ignore
       ref.current.visible = false;
