@@ -49,7 +49,6 @@ export function useLoadAsset(loader: AssetLoader): [boolean, number] {
       loader.imgAsset.map((src) => {
         const img = new Image();
         img.onload = () => {
-          console.log(`complete load ${src}`)
           data.loadedAssets += 1
           if (data.loadedAssets == data.totalAssets) {
             data.isDone = true

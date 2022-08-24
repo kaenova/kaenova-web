@@ -5,7 +5,7 @@ function Brand({ className }: ExtendClassName) {
   return (
     <h1
       className={
-        "font-[Poppins] dark:text-primarywhite text-[18px] font-bold " +
+        "font-[Poppins] dark:text-primarywhite text-[18px] font-bold select-none " +
         className
       }
     >

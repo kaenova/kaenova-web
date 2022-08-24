@@ -26,7 +26,7 @@ function Loading({ percentages, isDone }: LoadingProps) {
     <AnimatePresence>
       {!Remove && (
         <motion.div
-          className={"fixed z-10 w-full transition-all ease-in-out"}
+          className={"fixed w-full transition-all ease-in-out z-[9999999]"}
           animate={{
             opacity: 1,
           }}
@@ -50,7 +50,7 @@ function Loading({ percentages, isDone }: LoadingProps) {
                     <H1Fill>Load</H1Fill>
                     <H1Outline>ing</H1Outline>
                   </span>
-                  <H3Fill>{percentages}%</H3Fill>
+                  <H3Fill>{percentages.toFixed(2)}%</H3Fill>
                 </div>
               </NormalPadding>
             </LimitSizeLayout>

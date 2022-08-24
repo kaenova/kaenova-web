@@ -1,7 +1,7 @@
 import { Sprite, Stage, useApp, useTick, Container } from "@inlet/react-pixi";
 import * as PIXI from "pixi.js";
-import { InteractionEvent, Point } from "pixi.js";
-import React, { useEffect, useRef, useState } from "react";
+import { Point } from "pixi.js";
+import React, { useState } from "react";
 import { useWindowSize } from "../../../utils/window_size";
 
 function PixiTry(): JSX.Element {
@@ -11,37 +11,21 @@ function PixiTry(): JSX.Element {
     <Stage
       width={windowSize.width}
       height={windowSize.height}
-      style={{ position: "fixed", top: 0, left: 0 }}
+      style={{ position: "fixed", top: 0, left: 0, zIndex:0}}
       options={{
-        backgroundAlpha: 0,
+        backgroundColor: 0x121212,
+        backgroundAlpha: 1,
         antialias: true,
         autoStart: true,
         forceCanvas: true,
       }}
     >
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
-      <MarioBox />
       <FlashLight />
     </Stage>
   );
 }
 
 function FlashLight() {
-  const offsetMid = 100;
   const app = useApp();
 
   const [Position, setPosition] = useState({
@@ -69,71 +53,4 @@ function FlashLight() {
     </Container>
   );
 }
-
-function MarioBox() {
-  const speedMultiplier = 2;
-
-  const app = useApp();
-  const ref = useRef(null);
-
-  const screen = {
-    width: app.screen.width,
-    height: app.screen.height,
-  };
-
-  const [Position, setPosition] = useState({
-    x: Math.random() * screen.width + 50,
-    y: Math.random() * screen.height + 50,
-  });
-
-  const [PositionVector, setPositionVector] = useState({
-    x: Math.random() * -1,
-    y: Math.random() * -1,
-  });
-
-  const [SpriteTexture, setSpriteTexture] = useState(
-    "box"
-  );
-
-  useTick((delta) => {
-    let newPositionVector = PositionVector;
-
-    if (Position.x > screen.width || Position.x < 0) {
-      newPositionVector.x *= -1;
-    }
-
-    if (Position.y > screen.height || Position.y < 0) {
-      newPositionVector.y *= -1;
-    }
-
-    setPosition({
-      x: Position.x + delta * speedMultiplier * newPositionVector.x,
-      y: Position.y + delta * speedMultiplier * newPositionVector.y,
-    });
-    setPositionVector(newPositionVector);
-  });
-
-  function handleClick(e: InteractionEvent) {
-    setSpriteTexture("coin");
-    setTimeout(() => {
-      // @ts-ignore
-      ref.current.visible = false;
-    }, 1000);
-  }
-
-  return (
-    <Sprite
-      ref={ref}
-      image={SpriteTexture}
-      scale={{ x: 0.1, y: 0.1 }}
-      x={Position.x}
-      y={Position.y}
-      anchor={0.5}
-      interactive={true}
-      click={handleClick}
-      touchstart={handleClick}
-    />
-  );
-}
-
 export default PixiTry;
