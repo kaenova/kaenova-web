@@ -8,7 +8,6 @@ import NormalText from "../../typography/normal_text";
 
 function IndexSection1() {
   const isMobile = useCheckMobile();
-
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="relative">
