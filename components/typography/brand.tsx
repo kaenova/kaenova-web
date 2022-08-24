@@ -5,11 +5,13 @@ function Brand({ className }: ExtendClassName) {
   return (
     <h1
       className={
-        "font-[Poppins] tracking-brand dark:text-primarywhite text-[18px] font-bold " +
+        "font-[Poppins] dark:text-primarywhite text-[18px] font-bold " +
         className
       }
     >
-      KMA
+      <span>K</span>
+      <span className="mr-[5px] ml-[5px]">M</span>
+      <span>A</span>
     </h1>
   );
 }
