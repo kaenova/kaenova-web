@@ -1,6 +1,12 @@
 export const preloadImage = [
   "https://art.pixilart.com/0433de3a9dca4b9.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/White_Circle.svg/2048px-White_Circle.svg.png"
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/White_Circle.svg/2048px-White_Circle.svg.png",
+  "/kerjago_mono.png",
+  "/ailab_mono.png",
+  "/bangkit_mono.png",
+  "/gits_mono.png",
+  "/telkom_mono.png",
+  "/traveloka_mono.png"
 ]
 
 export const preloadPixiAssets = [

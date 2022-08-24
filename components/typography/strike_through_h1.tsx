@@ -2,12 +2,13 @@ import React from "react";
 
 type StrikeThroughH1Props = {
   strike: string,
-  normal: string
+  normal: string,
+  className? : string
 }
 
-function StrikeThroughH1({strike, normal} : StrikeThroughH1Props) {
+function StrikeThroughH1({strike, normal, className} : StrikeThroughH1Props) {
   return (
-    <h1 className="flex flex-row">
+    <h1 className="flex flex-row justify-center">
       <div className="relative">
         <p className="text-[35px] font-bold dark:text-primarywhite line-through decoration-accent decoration-[5px]">
           {strike}

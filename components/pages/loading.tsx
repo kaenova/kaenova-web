@@ -50,7 +50,7 @@ function Loading({ percentages, isDone }: LoadingProps) {
                     <H1Fill>Load</H1Fill>
                     <H1Outline>ing</H1Outline>
                   </span>
-                  <H3Fill>{percentages}%</H3Fill>
+                  <H3Fill>{percentages.toFixed(2)}%</H3Fill>
                 </div>
               </NormalPadding>
             </LimitSizeLayout>

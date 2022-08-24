@@ -9,7 +9,7 @@ import NormalText from "../../typography/normal_text";
 function IndexSection1() {
   const isMobile = useCheckMobile();
   return (
-    <div className="h-screen flex flex-col justify-center">
+    <section className="h-screen flex flex-col justify-center">
       <div className="relative">
         <span className="relative flex flex-col w-[60px] justify-center items-center mb-[10px]">
           <Brand />
@@ -42,7 +42,7 @@ function IndexSection1() {
         </div>
         {/* <ElevatedButton text="More Info" className="mt-[20px]" /> */}
       </div>
-    </div>
+    </section>
   );
 }
 
