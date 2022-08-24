@@ -53,6 +53,7 @@ module.exports = {
         primarywhite: "#EBEBEB",
         primarydark: "#121212",
         secondarydark: "#1D1D1D",
+        thirddark: "#4C4C4C",
         accent: "#00B7C3"
       },
       letterSpacing: {

@@ -6,7 +6,11 @@ export const preloadImage = [
   "/bangkit_mono.png",
   "/gits_mono.png",
   "/telkom_mono.png",
-  "/traveloka_mono.png"
+  "/traveloka_mono.png",
+  "/italase.png",
+  "/antriin.png",
+  "/cnnlstmsentiment.png",
+  "/profile-min.png"
 ]
 
 export const preloadPixiAssets = [

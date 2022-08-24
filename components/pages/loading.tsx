@@ -26,7 +26,7 @@ function Loading({ percentages, isDone }: LoadingProps) {
     <AnimatePresence>
       {!Remove && (
         <motion.div
-          className={"fixed z-10 w-full transition-all ease-in-out"}
+          className={"fixed w-full transition-all ease-in-out z-[9999999]"}
           animate={{
             opacity: 1,
           }}

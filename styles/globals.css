@@ -13,12 +13,12 @@ div#__next {
 
 @layer base {
   html {
-    font-family: 'inter',  -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    font-family: "inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
       sans-serif;
   }
 }
- 
+
 a {
   color: inherit;
   text-decoration: none;
@@ -36,5 +36,25 @@ a {
   .heading-strikethorugh {
     text-decoration-color: @;
     text-decoration: line-through;
+  }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1D1D1D;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4C4C4C;
 }

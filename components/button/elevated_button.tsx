@@ -9,7 +9,7 @@ type ElevatedButtonType = {
 
 function ElevatedButton({ text, className, onClick }: ElevatedButtonType) {
   return (
-    <button onClick={onClick} className={"relative w-min h-min transition-all group " + className}>
+    <button onClick={onClick} className={"relative w-min h-min transition-all group mb-5 select-none " + className}>
       <div className="relative z-[10] rounded-[5px] dark:bg-secondarydark min-w-[100px] min-h-[30px] flex flex-row justify-center items-center">
         <H3Fill>{text}</H3Fill>
       </div>
