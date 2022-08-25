@@ -1,11 +1,12 @@
-import { Howl } from "howler";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import ReactHowler from "react-howler";
 import { motion } from "framer-motion";
 import mitt from "next/dist/shared/lib/mitt";
+import NormalText from "../../typography/normal_text";
 
 function BackgroundAudio() {
-  const [Play, setPlay] = useState(false);
+  const [Play, setPlay] = useState(true);
+  const [Volume, setVolume] = useState(0.9);
 
   function handleButton() {
     let newPlay = !Play;
@@ -15,17 +16,46 @@ function BackgroundAudio() {
   return (
     <>
       <ReactHowler
-        src={"/coin.mp3"}
+        src={"/lofi.mp3"}
         preload={true}
         playing={Play}
         loop={true}
-        volume={0.1}
+        volume={Volume}
         onPlayError={(e) => console.log(e)}
       />
-      <div className="fixed z-[1] right-3">
-        <button className="w-full" onClick={handleButton}>
-          <Visualizer isPlaying={Play} width={40} height={20} numberOfBar={3} gap={3} />
+      <div className="fixed z-[3] right-3 group flex flex-col gap-4">
+        <button
+          className="w-full flex flex-col items-center"
+          onClick={handleButton}
+        >
+          <div className="opacity-80 group-hover:opacity-100 active:opacity-100 transition-all">
+            <Visualizer
+              isPlaying={Play}
+              width={40}
+              height={15}
+              numberOfBar={4}
+              gap={5}
+            />
+          </div>
         </button>
+        <div className="bg-secondarydark rounded-[5px] p-3 select-none scale-0 group-hover:scale-100 transition-all flex flex-col justify-center items-center">
+          <NormalText>Music</NormalText>
+          <div className="flex flex-col justify-center items-center">
+            <NormalText className="text-center">Volumes</NormalText>
+            <div className="h-[100px] w-[30px] relative flex flex-col justify-center items-center mt-2">
+              <input
+                id="default-range"
+                type="range"
+                value={Volume}
+                onChange={(e) => setVolume(parseFloat(e.target.value))}
+                max={1}
+                min={0}
+                step={0.01}
+                className="h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-thirddark -rotate-90 w-[100px]"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -34,7 +64,7 @@ function BackgroundAudio() {
 type VisualizerProps = {
   isPlaying: boolean;
   numberOfBar?: number;
-  gap? : number
+  gap?: number;
   width?: number;
   height?: number;
 };
@@ -49,10 +79,9 @@ function Visualizer({
   const visualizerWidth = width || 40;
   const visualizerHeight = height || 80;
   const numBar = numberOfBar || 5;
-  const trueGap = gap || 10
+  const trueGap = gap || 10;
 
-  const barWidth = (visualizerWidth - (trueGap * numBar - 1)) / numBar
-
+  const barWidth = (visualizerWidth - (trueGap * numBar - 1)) / numBar;
 
   const duration = 1;
 
@@ -68,12 +97,13 @@ function Visualizer({
         className="h-[100%] w-full left grid grid-flow-col absolute"
         style={{
           width: visualizerWidth,
-          gap: gap
+          gap: gap,
         }}
       >
         {[...Array(numBar)].map((_, i) => {
           return (
             <motion.div
+              key={i}
               initial={{
                 height: 0,
               }}
