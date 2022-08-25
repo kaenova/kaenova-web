@@ -2,6 +2,7 @@ import { Howl } from "howler";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import ReactHowler from "react-howler";
 import { motion } from "framer-motion";
+import mitt from "next/dist/shared/lib/mitt";
 
 function BackgroundAudio() {
   const [Play, setPlay] = useState(false);
@@ -21,9 +22,9 @@ function BackgroundAudio() {
         volume={0.1}
         onPlayError={(e) => console.log(e)}
       />
-      <div className="fixed top-0 right-[300px] z-[1]">
-        <button onClick={handleButton}>
-          <Visualizer isPlaying={Play}  />
+      <div className="fixed z-[1] right-3">
+        <button className="w-full" onClick={handleButton}>
+          <Visualizer isPlaying={Play} width={40} height={20} numberOfBar={3} gap={3} />
         </button>
       </div>
     </>
@@ -33,16 +34,25 @@ function BackgroundAudio() {
 type VisualizerProps = {
   isPlaying: boolean;
   numberOfBar?: number;
+  gap? : number
   width?: number;
   height?: number;
 };
 
-function Visualizer({ isPlaying, width, height, numberOfBar }: VisualizerProps) {
+function Visualizer({
+  isPlaying,
+  width,
+  gap,
+  height,
+  numberOfBar,
+}: VisualizerProps) {
   const visualizerWidth = width || 40;
-  const visualizerHeight = height! * 2 || 80;
-  const numBar = numberOfBar || 5 ;
+  const visualizerHeight = height || 80;
+  const numBar = numberOfBar || 5;
+  const trueGap = gap || 10
 
-  const barGap = visualizerWidth / numBar;
+  const barWidth = (visualizerWidth - (trueGap * numBar - 1)) / numBar
+
 
   const duration = 1;
 
@@ -50,14 +60,15 @@ function Visualizer({ isPlaying, width, height, numberOfBar }: VisualizerProps) 
     <div
       className="bg-transparent relative"
       style={{
-        width: `${visualizerWidth}px`,
-        height: `${visualizerHeight}px`,
+        width: visualizerWidth,
+        height: visualizerHeight,
       }}
     >
       <div
-        className="absolute h-full left-0 grid grid-flow-col top-[100%]"
+        className="h-[100%] w-full left grid grid-flow-col absolute"
         style={{
-          gap: barGap,
+          width: visualizerWidth,
+          gap: gap
         }}
       >
         {[...Array(numBar)].map((_, i) => {
@@ -67,7 +78,7 @@ function Visualizer({ isPlaying, width, height, numberOfBar }: VisualizerProps) 
                 height: 0,
               }}
               animate={{
-                height: isPlaying ? "50%" : "20%",
+                height: isPlaying ? "100%" : "40%",
               }}
               transition={{
                 repeat: isPlaying ? Infinity : 0,
@@ -77,37 +88,7 @@ function Visualizer({ isPlaying, width, height, numberOfBar }: VisualizerProps) 
                 delay: Math.random() * 2,
               }}
               style={{
-                width: visualizerWidth / numBar,
-              }}
-              className="h-full dark:bg-primarywhite p-0 m-0"
-            />
-          );
-        })}
-      </div>
-      <div
-        className="absolute h-full grid grid-flow-col rotate-180"
-        style={{
-          gap: barGap,
-        }}
-      >
-        {[...Array(numBar)].map((_, i) => {
-          return (
-            <motion.div
-              initial={{
-                height: 0,
-              }}
-              animate={{
-                height: isPlaying ? "50%" : "10%",
-              }}
-              transition={{
-                repeat: isPlaying ? Infinity : 0,
-                repeatType: "mirror",
-                ease: "linear",
-                duration: duration,
-                delay: Math.random() * 2,
-              }}
-              style={{
-                width: visualizerWidth / numBar,
+                width: barWidth,
               }}
               className="h-full dark:bg-primarywhite p-0 m-0"
             />
