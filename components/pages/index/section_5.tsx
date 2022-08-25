@@ -18,7 +18,7 @@ function IndexSection5() {
       />
       <H2Fill>Hello! Let&#39;s Connect</H2Fill>
       <NormalText className="text-justify ">
-        Hello there! Thank you for checking out my personal website. I&#39;m a web developer mainly on Back End technology. Currently I also learning DevOps and Machine Learning Technology. Learning and collaborating with people is one of my key to learn.
+        Hello there! Thank you for checking out my personal website. I&#39;m a web developer mainly on Back End technology. Currently, I&#39;m also learning DevOps and Machine Learning Technology. Learning and collaborating with people is one of my key to grow.
       </NormalText>
       <div className="flex flex-col justify-center sm:flex-row mt-5">
         <ElevatedButton
