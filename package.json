@@ -16,6 +16,7 @@
     "@tanstack/react-query": "^4.2.1",
     "@tanstack/react-query-devtools": "^4.2.1",
     "@types/howler": "^2.2.7",
+    "@types/react-howler": "^5.2.0",
     "@types/three": "^0.143.1",
     "autoprefixer": "^10.4.8",
     "framer-motion": "^7.2.1",
