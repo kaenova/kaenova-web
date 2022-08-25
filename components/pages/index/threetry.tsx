@@ -18,28 +18,28 @@ export default function ThreeTry() {
 }
 
 function CombinedMesh() {
-  const moveMultiplier = 0.2;
+  const moveMultiplier = 0.5;
   const mesh = useRef<THREE.Mesh>(null!);
 
-  const isScrolling = useScrollMouse(200);
+  const isScrolling = useScrollMouse(150);
   const [SpeedRotation, setSpeedRotation] = useState(1);
-  const maxSpeedRotation = 10;
-  const minSpeedRotation = 1;
-  const speedRotationMultiplier = 1;
+  const maxSpeedRotation = 5;
+  const minSpeedRotation = 1
+  const speedRotationMultiplier = 2.5;
 
   useFrame((_, delta) => {
     let newSpeedRotation: number = SpeedRotation;
 
     if (isScrolling && SpeedRotation < maxSpeedRotation) {
       newSpeedRotation += newSpeedRotation * delta * speedRotationMultiplier;
-    }
-
-    if (!isScrolling && SpeedRotation > minSpeedRotation) {
+    } else {
       newSpeedRotation -=
-        newSpeedRotation * delta * speedRotationMultiplier * 0.5;
+      newSpeedRotation * delta * speedRotationMultiplier;
+      if (newSpeedRotation < minSpeedRotation) {
+        newSpeedRotation = minSpeedRotation
+      }
     }
 
-    
     mesh.current.rotation.y += moveMultiplier * newSpeedRotation * delta;
 
     setSpeedRotation(newSpeedRotation);

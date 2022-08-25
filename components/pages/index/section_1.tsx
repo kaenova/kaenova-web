@@ -5,9 +5,6 @@ import Brand from "../../typography/brand";
 import H1Fill from "../../typography/h1_fill";
 import H1Outline from "../../typography/h1_outline";
 import H3Fill from "../../typography/h3_fill";
-//@ts-ignore
-import Icon from "react-eva-icons";
-import { motion } from "framer-motion";
 
 function IndexSection1() {
   const isMobile = useCheckMobile();
@@ -36,37 +33,6 @@ function IndexSection1() {
             elm?.scrollIntoView({ behavior: "smooth" });
           }}
         />
-      </div>
-
-      <div className="absolute bottom-32 right-0 z-[3]">
-        <motion.button
-          initial={{
-            y: 0,
-          }}
-          animate={{
-            y: 10,
-          }}
-          transition={{
-            duration: 3,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "mirror",
-          }}
-          onClick={() => {
-            var elm = document.getElementById("section2");
-            elm?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          <div className="select-none">
-            <H3Fill className="dark:text-accent rotate-90 mb-1">
-              More</H3Fill>
-            <Icon
-              fill="#00B7C3"
-              name="arrow-ios-downward-outline"
-              size="xlarge"
-            />
-          </div>
-        </motion.button>
       </div>
     </section>
   );

@@ -1,59 +1,55 @@
-import { Sprite, Stage, useApp, useTick } from "@inlet/react-pixi";
+import { PixiRef, Sprite, Stage, useApp, useTick } from "@inlet/react-pixi";
 import { InteractionEvent } from "pixi.js";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useWindowSize } from "../../utils/window_size";
 import NormalText from "../typography/normal_text";
+import { Howl } from "howler";
 
 function Footer() {
-  const [PlayGame, setPlayGame] = useState(true);
   const windowSize = useWindowSize();
+  const [NumberBox, setNumberBox] = useState(20);
+
+  function restartGame() {
+    setNumberBox(0)
+    setTimeout(() => {
+      setNumberBox(30)
+    }, 1000)
+  }
 
   return (
     <>
       <footer className="relative select-none h-[100px] z-[99999] border-t-2 border-thirddark">
-        {PlayGame && (
-          <Stage
-            height={100}
-            width={windowSize.width}
-            style={{ position: "absolute", top: 0, left: -8, zIndex: 100 }}
-            options={{
-              backgroundAlpha: 0,
-              antialias: true,
-              autoStart: true,
-              forceCanvas: true,
-            }}
-          >
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-            <MarioBox />
-          </Stage>
-        )}
-        <div className=" w-full h-full flex flex-col justify-center items-center">
+        <Stage
+          height={100}
+          width={windowSize.width}
+          style={{ position: "absolute", top: 0, left: -8, zIndex: 100 }}
+          options={{
+            backgroundAlpha: 0,
+            antialias: true,
+            autoStart: true,
+          }}
+        >
+          {[...Array(NumberBox)].map((_, i) => {
+            return <MarioBox key={i} />;
+          })}
+        </Stage>
+        <div className=" w-full h-full flex flex-col justify-center items-center z-[99999] ">
           <NormalText className="dark:text-thirddark">
-            Kaenova Mahendra Auditama
+          ©2022 Kaenova Mahendra Auditama. All Rights Reserved.
           </NormalText>
-          <NormalText className="dark:text-thirddark">2022</NormalText>
 
           <span className="flex flex-row justify-center gap-2 ">
-              <NormalText className="text-center dark:text-thirddark">Click the</NormalText>
+            <NormalText className="text-center dark:text-thirddark">
+              Click the
+            </NormalText>
+            <button className="z-[999999]" onClick={restartGame}>
               <img
                 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
                 width={20}
                 height={20}
               />
-            </span>
+            </button>
+          </span>
         </div>
       </footer>
     </>
@@ -62,14 +58,32 @@ function Footer() {
 
 function MarioBox() {
   const speedMultiplier = 2;
-
+  
   const app = useApp();
-  const ref = useRef(null);
-
+  
   const screen = {
     width: app.screen.width,
     height: app.screen.height,
   };
+  
+  const [SpriteTexture, setSpriteTexture] = useState("box");
+  const [Visible, setVisible] = useState(true);
+  const [Clicked, setClicked] = useState(false);
+
+  type ISprite = PixiRef<typeof Sprite>;
+  const ref = useRef<ISprite>(null);
+
+  // Setup howl sound
+  const [coinSound, setCoinSound] = useState<Howl>();
+  useLayoutEffect(() => {
+    setCoinSound(
+      new Howl({
+        src: ["/coin.mp3"],
+        preload: true,
+        volume: 0.1,
+      })
+    );
+  }, []);
 
   const [Position, setPosition] = useState({
     x: Math.random() * screen.width + 50,
@@ -80,10 +94,6 @@ function MarioBox() {
     x: Math.random() * -1,
     y: Math.random() * -1,
   });
-
-  const [SpriteTexture, setSpriteTexture] = useState(
-    "box"
-  );
 
   useTick((delta) => {
     let newPositionVector = PositionVector;
@@ -105,24 +115,30 @@ function MarioBox() {
 
   function handleClick(e: InteractionEvent) {
     setSpriteTexture("coin");
+    if (!Clicked) coinSound!.play();
+    setClicked(true);
     setTimeout(() => {
-      // @ts-ignore
-      ref.current.visible = false;
+      setVisible(false);
     }, 1000);
   }
 
   return (
-    <Sprite
-      ref={ref}
-      image={SpriteTexture}
-      scale={{ x: 0.1, y: 0.1 }}
-      x={Position.x}
-      y={Position.y}
-      anchor={0.5}
-      interactive={true}
-      click={handleClick}
-      touchstart={handleClick}
-    />
+    <>
+      {Visible && (
+        <Sprite
+          ref={ref}
+          image={SpriteTexture}
+          scale={{ x: 0.1, y: 0.1 }}
+          x={Position.x}
+          y={Position.y}
+          anchor={0.5}
+          interactive={true}
+          click={handleClick}
+          tap={handleClick}
+          touchstart={handleClick}
+        />
+      )}
+    </>
   );
 }
 

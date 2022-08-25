@@ -5,6 +5,8 @@ import LimitSizeLayout from "../components/layout/limit_size";
 import MainLayout from "../components/layout/main_layout";
 import NormalPadding from "../components/layout/normal_padding";
 import Footer from "../components/pages/footer";
+import BackgroundAudio from "../components/pages/index/background_audio";
+import Navigator from "../components/pages/index/navigator";
 import PixiTry from "../components/pages/index/pixitry";
 import IndexSection1 from "../components/pages/index/section_1";
 import IndexSection2 from "../components/pages/index/section_2";
@@ -17,7 +19,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>KMA</title>
+        <title>KMA - Welcome</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <NextSeo
@@ -33,6 +35,8 @@ const Home: NextPage = () => {
         }}
       />
       <MainLayout>
+        <BackgroundAudio />
+        {/* <Navigator /> */}
         <LimitSizeLayout>
           <NormalPadding>
             <IndexSection1 />

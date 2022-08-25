@@ -12,29 +12,38 @@ function IndexSection3() {
   const [Viewed, setViewed] = useState(false);
   const projectMoreThanThree = projectsData.length > 3;
   const { ref, inView, entry } = useInView({
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   useEffect(() => {
     if (inView) {
-      setViewed(true)
+      setViewed(true);
     }
-  }, [inView])
-  
+  }, [inView]);
 
   return (
-    <section ref={ref} className="mt-[30px] flex flex-col items-center min-h-[300px]">
+    <section
+      ref={ref}
+      className="mt-[30px] flex flex-col items-center min-h-[300px]"
+    >
       <StrikeThroughH1 strike="Pro" normal="jects" className="mb-[18px]" />
       {projectsData.map((v, i) => {
         if (i > 2) return <></>;
         return (
-          <Project key={i} idx={i} description={v.desc} name={v.judul} photo={v.img} inView={Viewed} />
+          <Project
+            key={i}
+            idx={i}
+            description={v.desc}
+            name={v.judul}
+            photo={v.img}
+            inView={Viewed}
+          />
         );
       })}
 
       {More &&
         projectsData.map((v, i) => {
-          if (i < 2) return <></>;
+          if (i < 3) return <></>;
           return (
             <Project
               key={i}
@@ -59,14 +68,27 @@ function IndexSection3() {
 }
 
 type ProjectProps = {
-  idx: number,
+  idx: number;
   name: string;
   description: string;
-  photo: string;
+  photo?: string;
   inView?: boolean;
 };
 
-function Project({idx, name, description, photo, inView = true }: ProjectProps) {
+function Project({
+  idx,
+  name,
+  description,
+  photo,
+  inView = true,
+}: ProjectProps) {
+
+  // Handle strikethrough
+  let nameLen = name.length
+  let randomSlice = Math.random() * nameLen
+  let strike = name.slice(0, randomSlice)
+  let outline = name.slice(randomSlice, nameLen)
+
   return (
     <AnimatePresence>
       {inView && (
@@ -79,14 +101,18 @@ function Project({idx, name, description, photo, inView = true }: ProjectProps) 
             y: "0",
             opacity: 1,
           }}
-          transition={{ 
+          transition={{
             duration: 0.5,
-            delay: idx * 0.5
-           }}
+            delay: idx * 0.5,
+          }}
           className="mb-[18px]"
         >
-          <div className="h-[150px] w-full bg-secondarydark">
-            <img src={photo} className="object-cover h-[150px] w-full" />
+          <div className="h-[150px] w-full bg-secondarydark flex flex-col justify-center items-center">
+            {photo != undefined ? (
+              <img src={photo} className="object-cover h-[150px] w-full" />
+            ) : (
+              <StrikeThroughH1 strike={strike} normal={outline} />
+            )}
           </div>
           <div className="flex flex-row items-center mt-[18px] min-h-[120px] ">
             <table>
