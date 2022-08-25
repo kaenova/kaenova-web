@@ -10,7 +10,9 @@ export const preloadImage = [
   "/italase.png",
   "/antriin.png",
   "/cnnlstmsentiment.png",
-  "/profile-min.png"
+  "/profile-min.png",
+  "/travelliu.png",
+  "/hotelbli.png"
 ]
 
 export const preloadPixiAssets = [

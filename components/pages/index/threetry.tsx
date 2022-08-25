@@ -21,11 +21,11 @@ function CombinedMesh() {
   const moveMultiplier = 0.5;
   const mesh = useRef<THREE.Mesh>(null!);
 
-  const isScrolling = useScrollMouse(300);
+  const isScrolling = useScrollMouse(150);
   const [SpeedRotation, setSpeedRotation] = useState(1);
-  const maxSpeedRotation = 10;
+  const maxSpeedRotation = 5;
   const minSpeedRotation = 1
-  const speedRotationMultiplier = 2;
+  const speedRotationMultiplier = 2.5;
 
   useFrame((_, delta) => {
     let newSpeedRotation: number = SpeedRotation;

@@ -27,14 +27,13 @@ function Footer() {
             backgroundAlpha: 0,
             antialias: true,
             autoStart: true,
-            forceCanvas: true,
           }}
         >
           {[...Array(NumberBox)].map((_, i) => {
             return <MarioBox key={i} />;
           })}
         </Stage>
-        <div className=" w-full h-full flex flex-col justify-center items-center">
+        <div className=" w-full h-full flex flex-col justify-center items-center z-[99999] ">
           <NormalText className="dark:text-thirddark">
           ©2022 Kaenova Mahendra Auditama. All Rights Reserved.
           </NormalText>

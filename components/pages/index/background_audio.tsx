@@ -5,7 +5,7 @@ import mitt from "next/dist/shared/lib/mitt";
 import NormalText from "../../typography/normal_text";
 
 function BackgroundAudio() {
-  const [Play, setPlay] = useState(true);
+  const [Play, setPlay] = useState(false);
   const [Volume, setVolume] = useState(0.9);
 
   function handleButton() {
@@ -51,7 +51,7 @@ function BackgroundAudio() {
                 max={1}
                 min={0}
                 step={0.01}
-                className="h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-thirddark -rotate-90 w-[100px]"
+                className="h-2 bg-primarydark rounded-lg appearance-none cursor-pointer dark:bg-thirddark -rotate-90 w-[100px]"
               />
             </div>
           </div>

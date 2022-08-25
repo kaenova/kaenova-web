@@ -17,36 +17,6 @@ function IndexSection4() {
       <SpotifyPlayed />
       <LiveStreaming />
       <div className="w-full h-[150px]"></div>
-
-      <div className="absolute bottom-4 right-0 z-[2]">
-        <motion.button
-          initial={{
-            y: 0,
-          }}
-          animate={{
-            y: 10,
-          }}
-          transition={{
-            duration: 3,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "mirror",
-          }}
-          onClick={() => {
-            var elm = document.getElementById("profile");
-            elm?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          <div>
-            <H3Fill className="dark:text-accent rotate-90 mb-2">Contact</H3Fill>
-            <Icon
-              fill="#00B7C3"
-              name="arrow-ios-downward-outline"
-              size="xlarge"
-            />
-          </div>
-        </motion.button>
-      </div>
     </section>
   );
 }
