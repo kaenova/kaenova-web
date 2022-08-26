@@ -5,7 +5,7 @@ import NormalText from "../../typography/normal_text";
 
 function BackgroundAudio() {
   const [Play, setPlay] = useState(true);
-  const [Volume, setVolume] = useState(0.4);
+  const [Volume, setVolume] = useState(0.15);
 
   function handleButton() {
     let newPlay = !Play;
@@ -22,22 +22,23 @@ function BackgroundAudio() {
         volume={Volume}
         onPlayError={(e) => console.log(e)}
       />
-      <div className="fixed z-[3] right-3 group flex flex-col gap-4">
+      <div className="fixed z-[3] right-2 group flex flex-col gap-4">
         <button
-          className="w-full flex flex-col items-center"
+          className="w-full flex flex-col items-center relative top-2"
           onClick={handleButton}
         >
           <div className="opacity-80 group-hover:opacity-100 active:opacity-100 transition-all">
             <Visualizer
               isPlaying={Play}
-              width={40}
+              width={20}
               height={15}
               numberOfBar={4}
-              gap={5}
+              gap={4}
             />
           </div>
+          <NormalText className="opacity-80 group-hover:opacity-100 active:opacity-100 select-none">Music</NormalText>
         </button>
-        <div className="bg-secondarydark rounded-[5px] p-3 select-none scale-0 group-hover:scale-100 transition-all flex flex-col justify-center items-center">
+        {/* <div className="bg-secondarydark rounded-[5px] p-3 select-none scale-0 group-hover:scale-100 transition-all flex flex-col justify-center items-center">
           <NormalText>Music</NormalText>
           <div className="flex flex-col justify-center items-center">
             <NormalText className="text-center">Volumes</NormalText>
@@ -54,7 +55,7 @@ function BackgroundAudio() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
@@ -81,8 +82,6 @@ function Visualizer({
   const trueGap = gap || 10;
 
   const barWidth = (visualizerWidth - (trueGap * numBar - 1)) / numBar;
-
-  const duration = 1;
 
   return (
     <div
@@ -113,7 +112,7 @@ function Visualizer({
                 repeat: isPlaying ? Infinity : 0,
                 repeatType: "mirror",
                 ease: "linear",
-                duration: duration,
+                duration: (Math.random() * 1) + 0.5 ,
                 delay: Math.random() * 2,
               }}
               style={{
