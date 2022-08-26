@@ -17,7 +17,6 @@ function PixiTry(): JSX.Element {
         backgroundAlpha: 1,
         antialias: true,
         autoStart: true,
-        forceCanvas: true,
       }}
     >
       <FlashLight />

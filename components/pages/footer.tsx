@@ -156,12 +156,12 @@ function MarioBox({ onClick }: { onClick?: Function }) {
 
   // Setup howl sound
   const [coinSound, setCoinSound] = useState<Howl>();
-  useLayoutEffect(() => {
+  useEffect(() => {
     setCoinSound(
       new Howl({
         src: ["/coin.mp3"],
         preload: true,
-        volume: 0.1,
+        volume: 0.05,
       })
     );
   }, []);
