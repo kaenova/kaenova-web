@@ -243,7 +243,7 @@ function WinModal({
   let caption
   let image
 
-  if (level <= 1) {
+  if (level <= maxLevel) {
     title = levelTitle[level - 1]
     caption = levelCaption[level -1]
     image = levelGif[level - 1]
