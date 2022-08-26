@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react";
 
-export function useScrollMouse(intervalMs: number): boolean {
-  const [IsScrolling, setIsScrolling] = useState(false)
+export function useScrollMouse(intervalMs: number): [number] {
+  const [ScrollDelta, setScrollDelta] = useState(0)
 
   useEffect(() => {
     // Prepare pointer
 
     var timer: NodeJS.Timeout;
-    window.addEventListener('scroll', function () {
-      if (timer !== null) {
-        clearTimeout(timer);
-      }
-      setIsScrolling(true)
-      timer = setTimeout(function () {
-        setIsScrolling(false)
-      }, intervalMs);
-    }, false);
+    window.addEventListener('wheel', function (e) {
+      setScrollDelta(e.offsetY)
+    })
+    
   })
 
-  return IsScrolling
+  return [ScrollDelta]
 }
