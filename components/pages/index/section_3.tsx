@@ -24,7 +24,7 @@ function IndexSection3() {
   return (
     <section
       ref={ref}
-      className="mt-[30px] flex flex-col items-center min-h-[300px]"
+      className="mt-[30px] flex flex-col items-center min-h-[1200px]"
     >
       <StrikeThroughH1 strike="Pro" normal="jects" className="mb-[18px]" />
       {projectsData.map((v, i) => {

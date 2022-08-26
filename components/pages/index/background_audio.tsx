@@ -1,12 +1,11 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import ReactHowler from "react-howler";
 import { motion } from "framer-motion";
-import mitt from "next/dist/shared/lib/mitt";
 import NormalText from "../../typography/normal_text";
 
 function BackgroundAudio() {
-  const [Play, setPlay] = useState(false);
-  const [Volume, setVolume] = useState(0.9);
+  const [Play, setPlay] = useState(true);
+  const [Volume, setVolume] = useState(0.4);
 
   function handleButton() {
     let newPlay = !Play;

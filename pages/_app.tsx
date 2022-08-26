@@ -5,6 +5,8 @@ import { useLoadAsset } from "../utils/load_assets";
 import { preloadImage, preloadPixiAssets } from "../data/preload_assets";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Transition from "../components/layout/transition";
+import PortalWrapper from "../components/layout/portal";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -15,10 +17,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <span className="relative">
+      <div className="relative dark:bg-primarydark">
         <Loading percentages={percentages * 100} isDone={isDone} />
-        {isDone && <Component {...pageProps} />}
-      </span>
+        {isDone && (
+          <Transition>
+              <Component {...pageProps} />
+          </Transition>
+        )}
+      </div>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );

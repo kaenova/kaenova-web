@@ -2,10 +2,22 @@ import * as THREE from "three";
 import React, { useRef, useState } from "react";
 import { Canvas, useFrame, ThreeElements } from "@react-three/fiber";
 import { useScrollMouse } from "../../../utils/scroll_mouse";
+import { motion } from "framer-motion";
 
 export default function ThreeTry() {
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen opacity-40">
+    <motion.div className="fixed top-0 left-0 w-screen h-screen opacity-40"
+    initial={{ 
+      opacity: 0,
+     }}
+    animate={{ 
+      opacity: 0.4
+     }}
+    transition={{ 
+      duration: 2,
+      delay: 2
+     }}
+    >
       <Canvas
         camera={{
           position: [5, 3, 2],
@@ -13,7 +25,7 @@ export default function ThreeTry() {
       >
         <CombinedMesh />
       </Canvas>
-    </div>
+    </motion.div>
   );
 }
 
@@ -24,7 +36,7 @@ function CombinedMesh() {
   const isScrolling = useScrollMouse(150);
   const [SpeedRotation, setSpeedRotation] = useState(1);
   const maxSpeedRotation = 5;
-  const minSpeedRotation = 1
+  const minSpeedRotation = 1;
   const speedRotationMultiplier = 2.5;
 
   useFrame((_, delta) => {
@@ -33,10 +45,9 @@ function CombinedMesh() {
     if (isScrolling && SpeedRotation < maxSpeedRotation) {
       newSpeedRotation += newSpeedRotation * delta * speedRotationMultiplier;
     } else {
-      newSpeedRotation -=
-      newSpeedRotation * delta * speedRotationMultiplier;
+      newSpeedRotation -= newSpeedRotation * delta * speedRotationMultiplier;
       if (newSpeedRotation < minSpeedRotation) {
-        newSpeedRotation = minSpeedRotation
+        newSpeedRotation = minSpeedRotation;
       }
     }
 
@@ -58,7 +69,6 @@ function CombinedMesh() {
     </mesh>
   );
 }
-
 
 function Plane(props: ThreeElements["mesh"]) {
   return (
