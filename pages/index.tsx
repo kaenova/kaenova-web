@@ -18,12 +18,8 @@ import ThreeTry from "../components/pages/index/threetry";
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>KMA - Welcome</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
       <NextSeo
-        title="KMA"
+        title="KMA - Welcome"
         description="Kaenova's portfolio and personal platform. Kaneova is a Software Engineer and Data Engineer studying in Telkom University. He likes to explore new technology."
         openGraph={{
           title: "KMA: Homepage",
