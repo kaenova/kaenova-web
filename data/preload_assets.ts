@@ -12,7 +12,11 @@ export const preloadImage = [
   "/cnnlstmsentiment.png",
   "/profile-min.png",
   "/travelliu.png",
-  "/hotelbli.png"
+  "/hotelbli.png",
+  "/wow.gif", 
+  "https://c.tenor.com/MhVJtrDqT8IAAAAd/nice-thumbs-up.gif", 
+  "https://c.tenor.com/UniGtspR-BcAAAAC/damage-thats-a-lot-of-damage.gif", 
+  "https://64.media.tumblr.com/36b6133796e2f93ae88c282b23621da2/05bd0b5ff8579b22-cc/s540x810/c6679aeecffb451e20afaa6c6c62bf625eeb39c6.gif"
 ]
 
 export const preloadPixiAssets = [

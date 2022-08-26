@@ -22,7 +22,7 @@ function Transition({ children }: PropsWithChildren) {
   };
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       <motion.div
         key={asPath}
         variants={transitionVariants}
