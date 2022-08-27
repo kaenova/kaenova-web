@@ -9,8 +9,8 @@ export type ExtendClassName = {
   className?: string;
 }
 
-export type ButtonType = {
+export interface ButtonType extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   className?: string;
   text: string;
   onClick? : MouseEventHandler;
-};
+}

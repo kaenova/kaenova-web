@@ -9,10 +9,12 @@ import Link from "next/link";
 import Chat from "./chat";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChatData } from "../../../types/live";
-import {
-  GoogleReCaptcha,
-  GoogleReCaptchaProvider,
-} from "react-google-recaptcha-v3";
+// import {
+//   GoogleReCaptcha,
+//   GoogleReCaptchaProvider,
+// } from "react-google-recaptcha-v3";
+
+import ReCAPTCHA from "react-google-recaptcha";
 
 function LiveChat({ className }: ExtendClassName) {
   return (
@@ -49,7 +51,7 @@ function ChatContainer() {
 }
 
 function ChatBox() {
-  const maxChatArray = 10;
+  const maxChatArray = 50;
   const maxCharLength = 240;
 
   // Captcha and state related
@@ -60,7 +62,7 @@ function ChatBox() {
   const [ChatArray, setChatArray] = useState<ChatData[]>([]);
 
   // Sender related
-  const [SenderName, setSenderName] = useState("Kaenova");
+  const [SenderName, setSenderName] = useState("");
   const [Message, setMessage] = useState("");
 
   function UpdateChatArray(data: ChatData) {
@@ -78,7 +80,9 @@ function ChatBox() {
     setMessage("");
   }
 
-  function handleReCapthca(token: string) {
+  function handleReCapthca(token: string | null) {
+    console.log(token);
+    if (!token) return;
     setGoogleCode(token);
   }
 
@@ -87,7 +91,7 @@ function ChatBox() {
   }
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey="6LeHr7AhAAAAAM83SpSFb__mVzlFMdG5TuAOlWeO">
+    <>
       {/* Chat History */}
       <div className="flex max-h-full flex-col-reverse w-full overflow-x-hidden overflow-y-scroll">
         <AnimatePresence>
@@ -117,6 +121,7 @@ function ChatBox() {
           {/* Google Verification */}
           {!Next && (
             <motion.div
+              layout
               initial={{
                 opacity: 0,
               }}
@@ -126,7 +131,7 @@ function ChatBox() {
               exit={{
                 opacity: 0,
               }}
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-2 justify-center items-center"
             >
               <NormalText>What's your name?</NormalText>
               <input
@@ -136,14 +141,27 @@ function ChatBox() {
                   setSenderName(e.target.value);
                 }}
               />
-              <GoogleReCaptcha onVerify={handleReCapthca} />
-              <AccentButton onClick={handleNextButton} text="Next" />
+              <div
+              className="scale-75"
+              >
+                <ReCAPTCHA
+                  sitekey="6Lecjh8eAAAAALVQX8n85Nstzf2-IJq_ZZz-rodb"
+                  onChange={handleReCapthca}
+                />
+              </div>
+              <AccentButton
+                onClick={handleNextButton}
+                className="w-full disabled:opacity-25"
+                text="Next"
+                disabled={!GoogleCode || (SenderName.trim() == "")}
+              />
             </motion.div>
           )}
 
           {/* Input */}
-          {Next && GoogleCode != "" && (
+          {Next && (
             <motion.div
+              layout
               initial={{
                 opacity: 0,
               }}
@@ -174,7 +192,7 @@ function ChatBox() {
           )}
         </AnimatePresence>
       </div>
-    </GoogleReCaptchaProvider>
+    </>
   );
 }
 
