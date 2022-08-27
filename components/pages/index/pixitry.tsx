@@ -11,13 +11,13 @@ function PixiTry(): JSX.Element {
     <Stage
       width={windowSize.width}
       height={windowSize.height}
-      style={{ position: "fixed", top: 0, left: 0, zIndex:0}}
+      className="z-[-1]"
+      style={{ position: "fixed", top: 0, left: 0}}
       options={{
         backgroundColor: 0x121212,
         backgroundAlpha: 1,
         antialias: true,
         autoStart: true,
-        forceCanvas: true,
       }}
     >
       <FlashLight />

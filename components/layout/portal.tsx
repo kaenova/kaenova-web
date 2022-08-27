@@ -5,8 +5,8 @@ export const portalId = "react-portal";
 function PortalWrapper({ children }: PropsWithChildren) {
   return (
     <>
-    <span id={portalId} className=""></span>
-    {children}
+      <span id={portalId} className=""></span>
+      {children}
     </>
   );
 }

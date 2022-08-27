@@ -17,14 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="relative dark:bg-primarydark">
-        <Loading percentages={percentages * 100} isDone={isDone} />
-        {isDone && (
-          <Transition>
-              <Component {...pageProps} />
-          </Transition>
-        )}
-      </div>
+      <Loading percentages={percentages * 100} isDone={isDone} />
+      {isDone && (
+        <Transition>
+          <Component {...pageProps} />
+        </Transition>
+      )}
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );

@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 import LimitSizeLayout from "../components/layout/limit_size";
 import MainLayout from "../components/layout/main_layout";
 import NormalPadding from "../components/layout/normal_padding";
@@ -31,7 +30,6 @@ const Home: NextPage = () => {
         }}
       />
       <MainLayout>
-        <BackgroundAudio />
         {/* <Navigator /> */}
         <LimitSizeLayout>
           <NormalPadding>
@@ -42,9 +40,13 @@ const Home: NextPage = () => {
             <IndexSection5 />
           </NormalPadding>
         </LimitSizeLayout>
+
+        <BackgroundAudio />
+        <Footer />
+
+        {/* Background */}
         <PixiTry />
         <ThreeTry />
-        <Footer />
       </MainLayout>
     </>
   );
