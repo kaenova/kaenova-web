@@ -56,7 +56,7 @@ function Navigator() {
                   duration: 0.3,
                 }}
               >
-                <H3Fill className="dark:text-accent mb-4 rotate-90">
+                <H3Fill className="text-accent mb-4 rotate-90">
                   More
                 </H3Fill>
               </motion.div>
@@ -73,7 +73,7 @@ function Navigator() {
                   duration: 0.3,
                 }}
               >
-                <H3Fill className="dark:text-accent mb-4 rotate-90">
+                <H3Fill className="text-accent mb-4 rotate-90">
                   Contact
                 </H3Fill>
               </motion.div>
@@ -118,7 +118,7 @@ function TextWrapperComponent({
             duration: 1,
           }}
         >
-          <H3Fill className="dark:text-accent mb-4 rotate-90">{text}</H3Fill>
+          <H3Fill className="text-accent mb-4 rotate-90">{text}</H3Fill>
         </motion.div>
       )}
     </>

@@ -102,7 +102,7 @@ function Visualizer({
               style={{
                 width: barWidth,
               }}
-              className="h-full dark:bg-primarywhite p-0 m-0"
+              className="h-full bg-primarywhite p-0 m-0"
             />
           );
         })}

@@ -45,7 +45,7 @@ function SpotifyPlayed() {
   return (
     <div className="flex flex-col mb-[30px]">
       <H2Fill className="text-center mb-[18px]">Spotify</H2Fill>
-      <NormalText className="text-center dark:text-thirddark">
+      <NormalText className="text-center text-thirddark">
         by Natemoo-re
       </NormalText>
       <img src="https://natemoo-re-git-master-kaenova.vercel.app/now-playing" />
