@@ -8,6 +8,7 @@ import StrikeThroughH1 from "../../typography/strike_through_h1";
 import { motion } from "framer-motion";
 //@ts-ignore
 import Icon from "react-eva-icons";
+import Link from "next/link";
 
 function IndexSection4() {
   return (
@@ -26,7 +27,11 @@ function LiveStreaming() {
   return (
     <div className="flex flex-col items-center">
       <H2Fill className="text-center mb-[18px]">Live Streaming</H2Fill>
-      <StreamingOffline />
+      <Link href="/live">
+        <a>
+          <StreamingOffline />
+        </a>
+      </Link>
     </div>
   );
 }
