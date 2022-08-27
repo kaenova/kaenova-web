@@ -133,7 +133,7 @@ function ChatBox() {
               }}
               className="flex flex-col gap-2 justify-center items-center"
             >
-              <NormalText>What's your name?</NormalText>
+              <NormalText>What&apos;s your name?</NormalText>
               <input
                 className="p-1 bg-thirddark rounded-[5px] outline-accent focus:border-2 focus:border-accent outline-offset-2 text-white"
                 value={SenderName}
