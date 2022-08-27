@@ -101,12 +101,12 @@ function Footer() {
           })}
         </Stage>
         <div className=" w-full h-full flex flex-col justify-center items-center ">
-          <NormalText className="dark:text-thirddark">
+          <NormalText className="text-thirddark">
             ©2022 Kaenova Mahendra Auditama. All Rights Reserved.
           </NormalText>
 
           <span className="flex flex-row justify-center gap-2 ">
-            <NormalText className="text-center dark:text-thirddark">
+            <NormalText className="text-center text-thirddark">
               Click the
             </NormalText>
             <button className=" z-[99999]" onClick={restartGame}>
@@ -120,7 +120,7 @@ function Footer() {
           {
             (Score != 0) &&
             <span className="flex flex-row justify-center gap-2 mt-2 items-center">
-            <NormalText className="text-center dark:text-thirddark">
+            <NormalText className="text-center text-thirddark">
               Score
             </NormalText>
             <span className="bg-secondarydark p-1 rounded-[5px]">
@@ -285,7 +285,7 @@ function WinModal({
             <img src={image} className="max-w-[350px] mt-2" />
 
             <span className="flex flex-row justify-center gap-2 mt-5">
-              <NormalText className="text-center dark:text-thirddark">
+              <NormalText className="text-center text-thirddark">
                 Just click the
               </NormalText>
               <img
@@ -293,7 +293,7 @@ function WinModal({
                 width={20}
                 height={20}
               />
-              <NormalText className="text-center dark:text-thirddark">
+              <NormalText className="text-center text-thirddark">
                 on the footer to continue
               </NormalText>
             </span>

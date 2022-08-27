@@ -1,13 +1,8 @@
 import React, { MouseEventHandler, ReactEventHandler } from "react";
+import { ButtonType } from "../../types/react";
 import H3Fill from "../typography/h3_fill";
 
-type ElevatedButtonType = {
-  className?: string;
-  text: string;
-  onClick? : MouseEventHandler;
-};
-
-function ElevatedButton({ text, className, onClick }: ElevatedButtonType) {
+function ElevatedButton({ text, className, onClick }: ButtonType) {
   return (
     <button onClick={onClick} className={"relative w-min h-min transition-all group mb-5 select-none " + className}>
       <div className="relative z-[1] rounded-[5px] bg-secondarydark min-w-[100px] min-h-[30px] flex flex-row justify-center items-center">

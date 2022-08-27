@@ -7,7 +7,7 @@ function Live() {
   return (
     <MainLayout>
       <div className='h-screen flex flex-col'>
-        <LiveHeader />
+        {/* <LiveHeader /> */}
         <LiveLayout/>
       </div>
     </MainLayout>
