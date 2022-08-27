@@ -39,6 +39,7 @@ function CombinedMesh() {
   const defaultSpeedRotation = 1;
   const accelerationMultiplier = 0.01;
   const deaccelerationMultiplier = 2
+  const maxSpeedRotation = 5
 
   useFrame((_, delta) => {
     let newSpeedRotation: number = speedRotation;
@@ -58,6 +59,9 @@ function CombinedMesh() {
     if (newSpeedRotation < defaultSpeedRotation) {
       newSpeedRotation += newSpeedRotation * delta * deaccelerationMultiplier
     }
+
+    if (newSpeedRotation > maxSpeedRotation) 
+      newSpeedRotation = maxSpeedRotation
 
     mesh.current.rotation.y += moveMultiplier * newSpeedRotation * delta;
 

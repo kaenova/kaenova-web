@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { projectsData } from "../../../data/projects";
@@ -22,10 +22,7 @@ function IndexSection3() {
   }, [inView]);
 
   return (
-    <section
-      ref={ref}
-      className="mt-[30px] flex flex-col items-center min-h-[1200px]"
-    >
+    <section ref={ref} className="mt-[30px] min-h-[1200px]">
       <StrikeThroughH1 strike="Pro" normal="jects" className="mb-[18px]" />
       {projectsData.map((v, i) => {
         if (i > 2) return <></>;
@@ -40,29 +37,44 @@ function IndexSection3() {
           />
         );
       })}
-
-      {More &&
-        projectsData.map((v, i) => {
-          if (i < 3) return <></>;
-          return (
-            <Project
-              key={i}
-              idx={i - 2}
-              description={v.desc}
-              name={v.judul}
-              photo={v.img}
-              inView={Viewed}
-            />
-          );
-        })}
-
-      {projectMoreThanThree && !More && (
-        <ElevatedButton text="More Projects" onClick={() => setMore(true)} />
-      )}
-
-      {More && (
-        <ElevatedButton text="Collapse" onClick={() => setMore(false)} />
-      )}
+      <motion.div layout className=" flex flex-col items-center justify-center">
+        {More &&
+          projectsData.map((v, i) => {
+            if (i < 3) return <></>;
+            return (
+              <Project
+                key={i}
+                idx={i - 2}
+                description={v.desc}
+                name={v.judul}
+                photo={v.img}
+                inView={Viewed}
+              />
+            );
+          })}
+        <AnimatePresence mode="wait">
+          {!More && (
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+            >
+              <ElevatedButton
+                text={
+                  projectMoreThanThree && !More ? "More Projects" : "Collapse"
+                }
+                onClick={() => setMore(!More)}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }
@@ -82,15 +94,14 @@ function Project({
   photo,
   inView = true,
 }: ProjectProps) {
-
   // Handle strikethrough
-  let nameLen = name.length
-  let randomSlice = Math.random() * nameLen
-  let strike = name.slice(0, randomSlice)
-  let outline = name.slice(randomSlice, nameLen)
+  let nameLen = name.length;
+  let randomSlice = Math.random() * nameLen;
+  let strike = name.slice(0, randomSlice);
+  let outline = name.slice(randomSlice, nameLen);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="sync">
       {inView && (
         <motion.div
           initial={{
@@ -100,6 +111,9 @@ function Project({
           animate={{
             y: "0",
             opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
           }}
           transition={{
             duration: 0.5,
