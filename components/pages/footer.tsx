@@ -77,7 +77,7 @@ function Footer() {
           }}
         />
       )}
-      <footer className="relative select-none h-[100px] z-[99999] border-t-2 border-thirddark">
+      <footer className="relative select-none h-[100px] border-t-2 border-thirddark z-[99999]">
         <Stage
           height={100}
           width={windowSize.width}
@@ -100,7 +100,7 @@ function Footer() {
             );
           })}
         </Stage>
-        <div className=" w-full h-full flex flex-col justify-center items-center z-[9] ">
+        <div className=" w-full h-full flex flex-col justify-center items-center ">
           <NormalText className="dark:text-thirddark">
             ©2022 Kaenova Mahendra Auditama. All Rights Reserved.
           </NormalText>
@@ -109,7 +109,7 @@ function Footer() {
             <NormalText className="text-center dark:text-thirddark">
               Click the
             </NormalText>
-            <button className="z-[999999]" onClick={restartGame}>
+            <button className=" z-[99999]" onClick={restartGame}>
               <img
                 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
                 width={20}

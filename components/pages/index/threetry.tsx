@@ -6,17 +6,18 @@ import { motion } from "framer-motion";
 
 export default function ThreeTry() {
   return (
-    <motion.div className="fixed top-0 left-0 w-screen h-screen opacity-40"
-    initial={{ 
-      opacity: 0,
-     }}
-    animate={{ 
-      opacity: 0.4
-     }}
-    transition={{ 
-      duration: 2,
-      delay: 2
-     }}
+    <motion.div
+      className="fixed top-0 left-0 w-screen h-screen opacity-40 z-[-1]"
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 0.4,
+      }}
+      transition={{
+        duration: 2,
+        delay: 2,
+      }}
     >
       <Canvas
         camera={{
@@ -30,42 +31,38 @@ export default function ThreeTry() {
 }
 
 function CombinedMesh() {
-  const moveMultiplier = 0.5;
   const mesh = useRef<THREE.Mesh>(null!);
-
+  
   const [scrollDelta] = useScrollMouse(150);
-  var speedRotation = 10
-  var lastScrollDelta = 1
-  const defaultSpeedRotation = 1;
-  const accelerationMultiplier = 0.01;
-  const deaccelerationMultiplier = 2
-  const maxSpeedRotation = 5
+  var speedRotation = 10;
+  var lastScrollDelta = 1;
+  
+  const accelMultiplier = 0.005
+  const defaultSpeedRotation = 0.01;
+  const deaccelMultiplier = 0.1
+  const maxSpeedRotation = 0.5;
 
   useFrame((_, delta) => {
-    let newSpeedRotation: number = speedRotation;
 
-    let scrollVal = scrollDelta / lastScrollDelta
-    lastScrollDelta = scrollDelta
+    let scrollVal = scrollDelta / lastScrollDelta;
+    lastScrollDelta = scrollDelta;
     if (isNaN(scrollVal) || scrollVal == 0) {
-      scrollVal = 1
+      scrollVal = 1;
     }
 
-    newSpeedRotation +=  delta * scrollVal * accelerationMultiplier;
-
-    if (newSpeedRotation > defaultSpeedRotation) {
-      newSpeedRotation -= newSpeedRotation * delta * deaccelerationMultiplier
+    speedRotation +=  scrollVal * accelMultiplier;
+        
+    if (speedRotation > defaultSpeedRotation) {
+      speedRotation -= speedRotation  * deaccelMultiplier;
+    }
+    
+    if (speedRotation < defaultSpeedRotation) {
+      speedRotation += speedRotation * deaccelMultiplier;
     }
 
-    if (newSpeedRotation < defaultSpeedRotation) {
-      newSpeedRotation += newSpeedRotation * delta * deaccelerationMultiplier
-    }
+    speedRotation = Math.min(Math.abs(speedRotation), maxSpeedRotation)
 
-    if (newSpeedRotation > maxSpeedRotation) 
-      newSpeedRotation = maxSpeedRotation
-
-    mesh.current.rotation.y += moveMultiplier * newSpeedRotation * delta;
-
-    speedRotation = newSpeedRotation;
+    mesh.current.rotation.y += speedRotation * delta * 10;
   });
 
   return (

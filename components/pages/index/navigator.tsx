@@ -26,7 +26,7 @@ function Navigator() {
   };
 
   return (
-    <div className="fixed bottom-4 right-5 z-[3]">
+    <div className="fixed bottom-4 right-5">
       <motion.button
         initial={{
           y: 0,

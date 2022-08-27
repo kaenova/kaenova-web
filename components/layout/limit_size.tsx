@@ -2,8 +2,8 @@ import React, { PropsWithChildren } from "react";
 
 function LimitSizeLayout({ children }: PropsWithChildren) {
   return (
-    <div className=" justify-center flex">
-      <div className="relative max-w-[640px] min-w-[360px] grow z-[1]">
+    <div className="justify-center flex">
+      <div className="max-w-[640px] min-w-[360px] grow">
         {children}
       </div>
     </div>

@@ -22,7 +22,7 @@ function BackgroundAudio() {
         volume={Volume}
         onPlayError={(e) => console.log(e)}
       />
-      <div className="fixed z-[3] right-2 group flex flex-col gap-4">
+      <div className="fixed right-2 top-0 group flex flex-col gap-4 z-[999999999]">
         <button
           className="w-full flex flex-col items-center relative top-2"
           onClick={handleButton}
@@ -36,26 +36,10 @@ function BackgroundAudio() {
               gap={4}
             />
           </div>
-          <NormalText className="opacity-80 group-hover:opacity-100 active:opacity-100 select-none">Music</NormalText>
+          <NormalText className="opacity-80 group-hover:opacity-100 active:opacity-100 select-none">
+            Music
+          </NormalText>
         </button>
-        {/* <div className="bg-secondarydark rounded-[5px] p-3 select-none scale-0 group-hover:scale-100 transition-all flex flex-col justify-center items-center">
-          <NormalText>Music</NormalText>
-          <div className="flex flex-col justify-center items-center">
-            <NormalText className="text-center">Volumes</NormalText>
-            <div className="h-[100px] w-[30px] relative flex flex-col justify-center items-center mt-2">
-              <input
-                id="default-range"
-                type="range"
-                value={Volume}
-                onChange={(e) => setVolume(parseFloat(e.target.value))}
-                max={1}
-                min={0}
-                step={0.01}
-                className="h-2 bg-primarydark rounded-lg appearance-none cursor-pointer dark:bg-thirddark -rotate-90 w-[100px]"
-              />
-            </div>
-          </div>
-        </div> */}
       </div>
     </>
   );
@@ -112,7 +96,7 @@ function Visualizer({
                 repeat: isPlaying ? Infinity : 0,
                 repeatType: "mirror",
                 ease: "linear",
-                duration: (Math.random() * 1) + 0.5 ,
+                duration: Math.random() * 1 + 0.5,
                 delay: Math.random() * 2,
               }}
               style={{

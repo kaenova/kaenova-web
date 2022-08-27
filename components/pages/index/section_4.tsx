@@ -104,7 +104,7 @@ function Blogs({
   return (
     <a
       href={redirect}
-      className="w-full z-[2] bg-secondarydark flex flex-col px-[30px] py-[19px] rounded-[5px] mb-[18px]"
+      className="w-full bg-secondarydark flex flex-col px-[30px] py-[19px] rounded-[5px] mb-[18px]"
     >
       <div className="w-full">
         <H3Fill className="text-center">{title}</H3Fill>
@@ -118,7 +118,7 @@ function Blogs({
 
 function BlogsPlaceholder() {
   return (
-    <div className="z-[2] w-full bg-secondarydark flex flex-col px-[30px] py-[19px] rounded-[5px] mb-[18px]">
+    <div className="w-full bg-secondarydark flex flex-col px-[30px] py-[19px] rounded-[5px] mb-[18px]">
       <div className="w-full animate-pulse flex flex-col items-center">
         <div className="h-[15px] w-[80%]  rounded-[5px] bg-thirddark mb-[5px]"></div>
         <div className="h-[15px] w-[40%]  rounded-[5px] bg-thirddark"></div>
