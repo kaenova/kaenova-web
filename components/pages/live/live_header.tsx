@@ -8,7 +8,7 @@ function LiveHeader() {
     <span className="flex lg:flex-row flex-col p-5 gap-1">
       <Link href="/">
         <a>
-          <div className="flex flex-col gap-0 items-center lg:items-start">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:gap-5 gap-0 items-center lg:items-start">
             <Brand />
             <StrikeThroughH1 strike="Li" normal="ve" />
           </div>
