@@ -10,7 +10,6 @@ function TextArea(
     <textarea
       {...props}
       className="p-2 bg-thirddark rounded-[5px] outline-accent focus:border-2 focus:border-accent outline-offset-2 text-white min-h-[75px]"
-      placeholder="Your message (max 240 characters)"
     />
   );
 }
