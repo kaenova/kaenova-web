@@ -108,15 +108,12 @@ function ChatBox() {
     try {
       let data = await getAllLiveChat();
       setChatArray(data);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   }
 
   useEffect(() => {
     if (lastMessage !== null) {
       let data = JSON.parse(lastMessage.data) as messageData;
-      console.log(data);
       UpdateChatArray({
         createdAt: new Date(data.created_at),
         message: data.message,
@@ -126,17 +123,13 @@ function ChatBox() {
   }, [lastMessage]);
 
   useEffect(() => {
-    console.log("ready state", readyState);
-  }, [readyState]);
-
-  useEffect(() => {
     getInitialLiveChat();
   }, []);
 
   return (
     <>
       {/* Chat History */}
-      <div className="flex max-h-full flex-col-reverse w-full overflow-x-hidden overflow-y-scroll">
+      <div className="flex max-h-full flex-col-reverse overflow-y-scroll">
         <AnimatePresence>
           {ChatArray.map((v, i) => (
             <motion.div
@@ -230,6 +223,12 @@ function ChatBox() {
                 }}
                 maxLength={240}
                 placeholder={`Your message (max ${maxCharLength} characters)`}
+                onKeyDown={(e) => {
+                  if (e.keyCode == 13 && !e.shiftKey) {
+                    handleSendMessage();
+                    setMessage("")
+                  }
+                }}
               />
               <AccentButton onClick={handleSendMessage} text="Send" />
             </motion.div>

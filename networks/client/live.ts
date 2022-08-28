@@ -27,7 +27,6 @@ export async function getAllLiveChat(): Promise<ChatData[]> {
     })
   })
 
-  console.log(finalData)
 
   return finalData
 }
@@ -38,6 +37,5 @@ export async function authenticateLiveUser(name: string, token: string): Promise
     hcaptcha: token
   })
   let data = res.data as string
-  console.log(data)
   return data
 }

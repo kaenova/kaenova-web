@@ -8,7 +8,6 @@ export function useCheckTop(): boolean {
       if (window.scrollY != 0) {
         setisTop(false)
       } else {
-        console.log("top")
         setisTop(true)
       }
     }

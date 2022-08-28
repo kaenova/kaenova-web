@@ -57,7 +57,6 @@ export function useLoadAsset(loader: AssetLoader): [boolean, number] {
           setLoadingPercentages(data.loadedAssets / data.totalAssets)
         }
         img.onerror = () => {
-          console.log(`err load ${src}`)
           data.loadedAssets += 1
           if (data.loadedAssets == data.totalAssets) {
             data.isDone = true
