@@ -9,11 +9,6 @@ import Link from "next/link";
 import Chat from "./chat";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChatData } from "../../../types/live";
-// import {
-//   GoogleReCaptcha,
-//   GoogleReCaptchaProvider,
-// } from "react-google-recaptcha-v3";
-
 import ReCAPTCHA from "react-google-recaptcha";
 
 function LiveChat({ className }: ExtendClassName) {
@@ -116,7 +111,7 @@ function ChatBox() {
         </AnimatePresence>
       </div>
 
-      <div className="bottom-0 w-full bg-secondarydark p-2  z-[1]">
+      <div className="bottom-0 w-full bg-secondarydark p-2 z-[1] select-none">
         <AnimatePresence mode="wait">
           {/* Google Verification */}
           {!Next && (
@@ -145,11 +140,10 @@ function ChatBox() {
                 <ReCAPTCHA
                   sitekey="6Lecjh8eAAAAALVQX8n85Nstzf2-IJq_ZZz-rodb"
                   onChange={handleReCapthca}
-                  className=""
                 />
-                <NormalText
-                className="absolute top-0 text-center"
-                >Please wait for ReCAPTCHA to appear</NormalText>
+                <NormalText className="absolute top-0 text-center z-[-1]">
+                  Please wait for ReCAPTCHA to appear
+                </NormalText>
               </div>
               <AccentButton
                 onClick={handleNextButton}

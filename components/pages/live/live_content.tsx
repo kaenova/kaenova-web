@@ -8,7 +8,7 @@ function LiveLayout() {
         className="flex flex-col xl:flex-row max-h-screen max-w-screen h-screen w-screen"
         style={{}}
       >
-        <VideoPlayer className="h-[30%] xl:w-[80%] xl:h-screen grow bg-blue-700" />
+        <VideoPlayer className="h-[30%] xl:w-[80%] xl:h-screen grow bg-primarydark" />
         <LiveChat
           className={`h-[70%] xl:w-[20%] xl:h-full max-h-screen overflow-hidden`}
         />
