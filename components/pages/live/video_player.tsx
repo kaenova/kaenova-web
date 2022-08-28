@@ -68,7 +68,7 @@ function VideoPlayer({ className }: ExtendClassName) {
   }
 
   return (
-    <div ref={reactPlayer} className={"relative h-full w-full" + className}>
+    <div ref={reactPlayer} className={"relative w-full" + className}>
       <ReactPlayer
         height={"100%"}
         playing={Playing}

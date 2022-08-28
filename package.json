@@ -19,8 +19,11 @@
     "@types/howler": "^2.2.7",
     "@types/react-google-recaptcha": "^2.1.5",
     "@types/react-howler": "^5.2.0",
+    "@types/sockjs-client": "^1.5.1",
     "@types/three": "^0.143.1",
+    "@types/websocket": "^1.0.5",
     "autoprefixer": "^10.4.8",
+    "axios": "^0.27.2",
     "framer-motion": "^7.2.1",
     "howler": "^2.2.3",
     "next": "12.2.5",
@@ -38,9 +41,12 @@
     "react-icons": "^4.4.0",
     "react-intersection-observer": "^9.4.0",
     "react-player": "^2.10.1",
+    "react-use-websocket": "^4.2.0",
     "screenfull": "^6.0.2",
+    "sockjs-client": "^1.6.1",
     "tailwindcss": "^3.1.8",
-    "three": "^0.143.0"
+    "three": "^0.143.0",
+    "websocket": "^1.0.34"
   },
   "devDependencies": {
     "@types/node": "18.7.11",

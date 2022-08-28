@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ExtendClassName } from "../../../types/react";
 import AccentButton from "../../button/accent_button";
 import TextArea from "./text_area";
@@ -11,6 +11,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChatData } from "../../../types/live";
 import ReCAPTCHA from "react-google-recaptcha";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import {
+  authenticateLiveUser,
+  getAllLiveChat,
+  messageData,
+} from "../../../networks/client/live";
+import useWebSocket, { ReadyState } from "react-use-websocket";
 
 function LiveChat({ className }: ExtendClassName) {
   return (
@@ -49,6 +55,7 @@ function ChatContainer() {
 function ChatBox() {
   const maxChatArray = 50;
   const maxCharLength = 240;
+  const wsUrl = `${process.env.NEXT_PUBLIC_KAENOVA_WEBSOCKET_ENDPOINT}/livechat/ws`;
 
   // Captcha and state related
   const [CaptchaCode, setCaptchaCode] = useState("");
@@ -58,7 +65,9 @@ function ChatBox() {
   const [ChatArray, setChatArray] = useState<ChatData[]>([]);
 
   // Sender related
+  const { sendMessage, lastMessage, readyState } = useWebSocket(wsUrl);
   const [SenderName, setSenderName] = useState("");
+  const [UserId, setUserId] = useState("");
   const [Message, setMessage] = useState("");
 
   function UpdateChatArray(data: ChatData) {
@@ -67,12 +76,19 @@ function ChatBox() {
     setChatArray((ChatArray) => [data, ...ChatArray.slice(0, maxChatArray)]);
   }
 
-  function sendMessage() {
+  function handleSendMessage() {
     UpdateChatArray({
       createdAt: new Date(),
       message: Message,
       senderName: SenderName,
     });
+    if (readyState == ReadyState.OPEN) {
+      let data = JSON.stringify({
+        message: Message,
+        user_id: UserId,
+      });
+      sendMessage(data);
+    }
     setMessage("");
   }
 
@@ -82,8 +98,40 @@ function ChatBox() {
   }
 
   function handleNextButton() {
+    authenticateLiveUser(SenderName, CaptchaCode).then((v) => {
+      setUserId(v);
+    });
     setNext(true);
   }
+
+  async function getInitialLiveChat() {
+    try {
+      let data = await getAllLiveChat();
+      setChatArray(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    if (lastMessage !== null) {
+      let data = JSON.parse(lastMessage.data) as messageData;
+      console.log(data);
+      UpdateChatArray({
+        createdAt: new Date(data.created_at),
+        message: data.message,
+        senderName: data.user.name,
+      });
+    }
+  }, [lastMessage]);
+
+  useEffect(() => {
+    console.log("ready state", readyState);
+  }, [readyState]);
+
+  useEffect(() => {
+    getInitialLiveChat();
+  }, []);
 
   return (
     <>
@@ -137,7 +185,10 @@ function ChatBox() {
                 }}
               />
               <div className="scale-75 relative min-h-[30px] min-w-[300px] flex flex-col justify-center items-center">
-                <HCaptcha sitekey="9e198344-e74d-44df-8ec5-5c8754bb40cb" onVerify={(token,ekey) => handleHCapthca(token, ekey)} />
+                <HCaptcha
+                  sitekey="9e198344-e74d-44df-8ec5-5c8754bb40cb"
+                  onVerify={(token, ekey) => handleHCapthca(token, ekey)}
+                />
                 <NormalText className="absolute top-0 text-center z-[-1]">
                   Please wait for hCaptcha to appear
                 </NormalText>
@@ -180,7 +231,7 @@ function ChatBox() {
                 maxLength={240}
                 placeholder={`Your message (max ${maxCharLength} characters)`}
               />
-              <AccentButton onClick={sendMessage} text="Send" />
+              <AccentButton onClick={handleSendMessage} text="Send" />
             </motion.div>
           )}
         </AnimatePresence>
