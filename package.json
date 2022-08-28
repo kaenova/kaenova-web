@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.4.4",
     "@inlet/react-pixi": "^6.8.0",
     "@pixi/filter-adjustment": "^4.2.0",
     "@pixi/sound": "^4.3.0",

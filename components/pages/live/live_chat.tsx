@@ -10,6 +10,7 @@ import Chat from "./chat";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChatData } from "../../../types/live";
 import ReCAPTCHA from "react-google-recaptcha";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 function LiveChat({ className }: ExtendClassName) {
   return (
@@ -50,7 +51,7 @@ function ChatBox() {
   const maxCharLength = 240;
 
   // Captcha and state related
-  const [GoogleCode, setGoogleCode] = useState("");
+  const [CaptchaCode, setCaptchaCode] = useState("");
   const [Next, setNext] = useState(false);
 
   // Chat box related
@@ -75,10 +76,9 @@ function ChatBox() {
     setMessage("");
   }
 
-  function handleReCapthca(token: string | null) {
-    console.log(token);
+  function handleHCapthca(token: string, ekey: string) {
     if (!token) return;
-    setGoogleCode(token);
+    setCaptchaCode(token);
   }
 
   function handleNextButton() {
@@ -137,19 +137,16 @@ function ChatBox() {
                 }}
               />
               <div className="scale-75 relative min-h-[30px] min-w-[300px] flex flex-col justify-center items-center">
-                <ReCAPTCHA
-                  sitekey="6Lecjh8eAAAAALVQX8n85Nstzf2-IJq_ZZz-rodb"
-                  onChange={handleReCapthca}
-                />
+                <HCaptcha sitekey="9e198344-e74d-44df-8ec5-5c8754bb40cb" onVerify={(token,ekey) => handleHCapthca(token, ekey)} />
                 <NormalText className="absolute top-0 text-center z-[-1]">
-                  Please wait for ReCAPTCHA to appear
+                  Please wait for hCaptcha to appear
                 </NormalText>
               </div>
               <AccentButton
                 onClick={handleNextButton}
                 className="w-full disabled:opacity-25"
                 text="Next"
-                disabled={!GoogleCode || SenderName.trim() == ""}
+                disabled={!CaptchaCode || SenderName.trim() == ""}
               />
             </motion.div>
           )}
