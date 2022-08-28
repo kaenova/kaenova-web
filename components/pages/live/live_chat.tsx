@@ -141,19 +141,21 @@ function ChatBox() {
                   setSenderName(e.target.value);
                 }}
               />
-              <div
-              className="scale-75"
-              >
+              <div className="scale-75 relative min-h-[30px] min-w-[300px] flex flex-col justify-center items-center">
                 <ReCAPTCHA
                   sitekey="6Lecjh8eAAAAALVQX8n85Nstzf2-IJq_ZZz-rodb"
                   onChange={handleReCapthca}
+                  className=""
                 />
+                <NormalText
+                className="absolute top-0 text-center"
+                >Please wait for ReCAPTCHA to appear</NormalText>
               </div>
               <AccentButton
                 onClick={handleNextButton}
                 className="w-full disabled:opacity-25"
                 text="Next"
-                disabled={!GoogleCode || (SenderName.trim() == "")}
+                disabled={!GoogleCode || SenderName.trim() == ""}
               />
             </motion.div>
           )}
