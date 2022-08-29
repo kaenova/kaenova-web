@@ -27,7 +27,7 @@ export async function getAllLiveChat(): Promise<ChatData[]> {
     })
   })
 
-
+  finalData.reverse()
   return finalData
 }
 

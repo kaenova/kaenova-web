@@ -9,7 +9,6 @@ import Link from "next/link";
 import Chat from "./chat";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChatData } from "../../../types/live";
-import ReCAPTCHA from "react-google-recaptcha";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import {
   authenticateLiveUser,
@@ -113,18 +112,30 @@ function ChatBox() {
 
   useEffect(() => {
     if (lastMessage !== null) {
-      let data = JSON.parse(lastMessage.data) as messageData;
-      UpdateChatArray({
-        createdAt: new Date(data.created_at),
-        message: data.message,
-        senderName: data.user.name,
-      });
+      try {
+        let data = JSON.parse(lastMessage.data) as messageData;
+        UpdateChatArray({
+          createdAt: new Date(data.created_at),
+          message: data.message,
+          senderName: data.user.name,
+        });
+      } catch (e) {}
     }
   }, [lastMessage]);
 
   useEffect(() => {
     getInitialLiveChat();
   }, []);
+
+  // Keep ws connection alive
+  useEffect(() => {
+    let interval = setInterval(() => {
+      if (readyState == ReadyState.OPEN) {
+        sendMessage("ping");
+      }
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [readyState]);
 
   return (
     <>
@@ -226,7 +237,7 @@ function ChatBox() {
                 onKeyDown={(e) => {
                   if (e.keyCode == 13 && !e.shiftKey) {
                     handleSendMessage();
-                    setMessage("")
+                    setMessage("");
                   }
                 }}
               />
