@@ -1,4 +1,4 @@
-import { ChatData } from "../../types/live";
+import { ChatData, LiveData } from "../../types/live";
 import { backendApi } from "./axios";
 
 export type messageData = {
@@ -38,4 +38,13 @@ export async function authenticateLiveUser(name: string, token: string): Promise
   })
   let data = res.data as string
   return data
+}
+
+export async function checkStatusLive(): Promise<LiveData> {
+  let res = await backendApi().get("/live/status")
+  let data = res.data as { title: string, is_live: boolean }
+  return {
+    isLive: data.is_live,
+    title: data.title
+  }
 }
