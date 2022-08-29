@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, useEffect, useRef, useState } from "react";
-import { ExtendClassName } from "../../../types/react";
+import { ExtendClassName } from "../../types/react";
 import ReactPlayer from "react-player";
-import H2Fill from "../../typography/h2_fill";
+import H2Fill from "../typography/h2_fill";
 import {
   BsFillPlayFill,
   BsFillStopFill,
@@ -11,10 +11,11 @@ import {
   BsVolumeUpFill,
 } from "react-icons/bs";
 import screenfull from "screenfull";
-import StrikeThroughH1 from "../../typography/strike_through_h1";
+import StrikeThroughH1 from "../typography/strike_through_h1";
 import { useQuery } from "@tanstack/react-query";
-import { checkStatusLive } from "../../../networks/client/live";
-import { AnimatePresence, motion } from "framer-motion";
+import { checkStatusLive } from "../../networks/client/live";
+import Link from "next/link";
+import H3Fill from "../typography/h3_fill";
 
 /*
   Video player on phone will be full width, but if in desktop please look up to design guide
@@ -92,16 +93,17 @@ function VideoPlayer({ className }: ExtendClassName) {
     }
   }, [data]);
 
-  useEffect(() => {
-    console.log(Buffering);
-  }, [Buffering]);
-
   if (!IsOnline) {
     return (
       <div className={"relative w-full" + className}>
         <div className="h-full flex flex-col justify-center">
           <StrikeThroughH1 strike="Off" normal="line" />
           <H2Fill className="text-center">Kaenova is currently offline</H2Fill>
+          <Link href="/">
+              <a>
+                <H3Fill className="decoration-accent underline text-center">Home</H3Fill>
+              </a>
+            </Link>
         </div>
       </div>
     );

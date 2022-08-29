@@ -1,6 +1,6 @@
 import React from "react";
 import LiveChat from "./live_chat";
-import VideoPlayer from "./video_player";
+import VideoPlayer from "../video_player";
 
 function LiveLayout() {
   return (

@@ -9,6 +9,9 @@ import { motion } from "framer-motion";
 //@ts-ignore
 import Icon from "react-eva-icons";
 import Link from "next/link";
+import { StreamingOffline, StreamingOnline } from "./live_badge";
+import { checkStatusLive } from "../../../networks/client/live";
+import VideoPlayer from "../video_player";
 
 function IndexSection4() {
   return (
@@ -24,23 +27,35 @@ function IndexSection4() {
 
 // Live Streaming
 function LiveStreaming() {
+  const { data } = useQuery(["live_status_section4"], checkStatusLive, {
+    refetchInterval: 30000,
+  });
+
+  if (data == undefined || !data.isLive) {
+    return (
+      <div className="flex flex-col items-center">
+        <H2Fill className="text-center mb-[18px]">Live Streaming</H2Fill>
+        <Link href="/live">
+          <a>
+            <StreamingOffline />
+          </a>
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center">
       <H2Fill className="text-center mb-[18px]">Live Streaming</H2Fill>
-      <Link href="/live">
-        <a>
-          <StreamingOffline />
-        </a>
-      </Link>
-    </div>
-  );
-}
-
-function StreamingOffline() {
-  return (
-    <div className="bg-secondarydark w-[160px] h-[30px] flex flex-row rounded-[5px] justify-center items-center gap-2">
-      <div className="h-[20px] w-[20px] bg-thirddark rounded-full"></div>
-      <H3Fill>Currently offline</H3Fill>
+      <div className="bg-secondarydark w-full p-5 rounded-[5px]">
+        <Link href="/live">
+          <a className="flex flex-row gap-3 pb-3">
+            <div className="h-[20px] w-[20px] bg-red-600 animate-pulse transition-all rounded-full"></div>
+            <H3Fill>Currently streaming!</H3Fill>
+          </a>
+        </Link>
+        <VideoPlayer className="w-full aspect-video" />
+      </div>
     </div>
   );
 }

@@ -20,7 +20,6 @@ function BackgroundAudio() {
         playing={Play}
         loop={true}
         volume={Volume}
-        onPlayError={(e) => console.log(e)}
       />
       <div className="fixed right-2 top-0 group flex flex-col gap-4 z-[999999999]">
         <button
