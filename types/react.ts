@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 export type PropsWithChildrenClassName = {
   children?: ReactNode | undefined,
@@ -7,4 +7,10 @@ export type PropsWithChildrenClassName = {
 
 export type ExtendClassName = {
   className?: string;
+}
+
+export interface ButtonType extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  className?: string;
+  text: string;
+  onClick? : MouseEventHandler;
 }
