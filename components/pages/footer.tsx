@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import StrikeThroughH1 from "../typography/strike_through_h1";
 import H2Fill from "../typography/h2_fill";
 
-const levelGif = ["/wow.gif", "https://c.tenor.com/MhVJtrDqT8IAAAAd/nice-thumbs-up.gif", "https://c.tenor.com/UniGtspR-BcAAAAC/damage-thats-a-lot-of-damage.gif", "https://64.media.tumblr.com/36b6133796e2f93ae88c282b23621da2/05bd0b5ff8579b22-cc/s540x810/c6679aeecffb451e20afaa6c6c62bf625eeb39c6.gif"];
+const levelGif = ["/wow.gif", "/thumbs.gif", "/lots-of-damage.gif", "/getting-paid.gif"];
 const levelTitle = ["WOW", "Nice!", "Damn", "Huh?!"];
 const levelCaption = ["You just won my mini games", "You really enjoying this huh?", "That's a lot of boxes", "Wait, you still going?"];
 const maxLevel = levelCaption.length;
