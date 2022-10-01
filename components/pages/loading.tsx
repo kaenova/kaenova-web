@@ -7,6 +7,7 @@ import Brand from "../typography/brand";
 import H1Fill from "../typography/h1_fill";
 import H1Outline from "../typography/h1_outline";
 import H3Fill from "../typography/h3_fill";
+import { NextSeo } from "next-seo";
 
 type LoadingProps = {
   percentages: number;
@@ -23,41 +24,55 @@ function Loading({ percentages, isDone }: LoadingProps) {
   }, [isDone]);
 
   return (
-    <AnimatePresence>
-      {!Remove && (
-        <motion.div
-          className={"fixed w-full transition-all ease-in-out z-[9999999]"}
-          animate={{
-            opacity: 1,
-          }}
-          exit={{
-            y: "-100vh",
-            opacity: 0,
-          }}
-          transition={{ 
-            delay: 2,
-           }}
-        >
-          <MainLayout>
-            <LimitSizeLayout>
-              <NormalPadding>
-                <div className="h-screen flex flex-col justify-center items-center">
-                  <span className="flex flex-col justify-center items-center gap-[-30px]">
-                    <Brand className="text-center" />
-                    <div className="w-[50px] h-[3px] bg-accent animate-pulse"></div>
-                  </span>
-                  <span className="flex flex-row transition-all animate-pulse">
-                    <H1Fill>Load</H1Fill>
-                    <H1Outline>ing</H1Outline>
-                  </span>
-                  <H3Fill>{percentages.toFixed(2)}%</H3Fill>
-                </div>
-              </NormalPadding>
-            </LimitSizeLayout>
-          </MainLayout>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <>
+      <NextSeo
+        title="KMA"
+        description="Kaenova's portfolio and personal platform. Kaneova is a Software Engineer and Data Engineer studying in Telkom University. He likes to explore new technology."
+        openGraph={{
+          title: "KMA: Homepage",
+          description:
+            "Kaenova's portfolio and personal platform. Kaneova is a Software Engineer and Data Engineer studying in Telkom University. He likes to explore new technology.",
+          url: "https://kaenova.my.id",
+          images: [{ url: "https://kaenova.my.id/SEO.png" }],
+          site_name: "KMA",
+        }}
+      />
+      <AnimatePresence>
+        {!Remove && (
+          <motion.div
+            className={"fixed w-full transition-all ease-in-out z-[9999999]"}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              y: "-100vh",
+              opacity: 0,
+            }}
+            transition={{
+              delay: 2,
+            }}
+          >
+            <MainLayout>
+              <LimitSizeLayout>
+                <NormalPadding>
+                  <div className="h-screen flex flex-col justify-center items-center">
+                    <span className="flex flex-col justify-center items-center gap-[-30px]">
+                      <Brand className="text-center" />
+                      <div className="w-[50px] h-[3px] bg-accent animate-pulse"></div>
+                    </span>
+                    <span className="flex flex-row transition-all animate-pulse">
+                      <H1Fill>Load</H1Fill>
+                      <H1Outline>ing</H1Outline>
+                    </span>
+                    <H3Fill>{percentages.toFixed(2)}%</H3Fill>
+                  </div>
+                </NormalPadding>
+              </LimitSizeLayout>
+            </MainLayout>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
