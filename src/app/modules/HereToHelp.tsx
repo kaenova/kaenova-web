@@ -48,7 +48,7 @@ function SmallNeedToHelp() {
   return (
     <div className='lg:hidden block'>
       <div className='flex flex-col max-w-3xl gap-4'>
-        <div className="flex flex-col justify-between bg-[#211F1E] rounded-md p-6">
+        <div className="flex flex-col justify-between bg-[#211F1E] rounded-md p-6 gap-10">
           <div className="flex flex-col gap-2">
             <p className="text-xl font-bold text-white text-center">Machine Leaarning NLP Consultation</p>
             <p className="text-secondary-btn">Leverage my expertise in NLP to unlock the power of text data. I offer comprehensive solutions for sentiment analysis, text classification, named entity recognition, and more. Harness the potential of NLP to gain valuable insights and automate language-based tasks.</p>

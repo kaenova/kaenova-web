@@ -60,9 +60,9 @@ function Projects() {
       <div className="w-full">
         <Slider {...settings}>
           {projects.map((v, i) => (
-            <div>
+            <div key={i}>
               <div className="flex flex-col justify-center items-center">
-                <ProjectCard key={i} {...v} />
+                <ProjectCard {...v} />
               </div>
             </div>
           ))}
