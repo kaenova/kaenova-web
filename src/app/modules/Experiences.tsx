@@ -31,7 +31,8 @@ function Experiences() {
       </div>
       <div className="border-l border-l-primary-btn">
         {
-          ExperienceData.map(v => <ExperienceCard
+          ExperienceData.map((v, i) => <ExperienceCard
+            key={i}  
             title={v.title}
             where={v.where}
             when={v.when}
