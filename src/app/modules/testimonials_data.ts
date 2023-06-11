@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     name: "Galang Rambu Ramadhan",
-    review: "Very helpful in solving ModelML problems."
+    review: "Very helpful in solving Model ML problems."
   },
   {
     name: "Dewa Putra Hernanda",
