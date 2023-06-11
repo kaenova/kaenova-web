@@ -8,6 +8,7 @@ function ExperienceCard(
   { title, where, when, desc }:
     { title: string, where: string, when: string, desc: string }
 ) {
+
   const variant: Variants = {
     offscreen: {
       opacity: "0%"
