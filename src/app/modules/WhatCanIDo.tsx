@@ -22,6 +22,7 @@ function OutlineSkillData({ heading, subheading, className }: { heading: string,
       variants={variant}
       initial="offscreen"
       whileInView="onscreen"
+      transition={{ ease: "easeIn" }}
       viewport={{ once: true, amount: 0.9 }}
       className={twMerge('px-6 py-4 border border-secondary-btn flex flex-col rounded-md h-min', className)}>
       <p className='text-white font-bold'>{heading}</p>
