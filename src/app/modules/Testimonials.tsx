@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Testimonials as TestimonialsType, testimonials } from './testimonials_data'
 import { twMerge } from 'tailwind-merge'
 import shuffleArray from '../utils/shuffleArray'
+import { motion } from 'framer-motion'
 
 function TestimonialsCard({ className, ...data }: TestimonialsType & { className?: string }) {
   return (
@@ -26,21 +27,23 @@ function Testimonials() {
         <p className="text-2xl font-bold text-center text-white">Lot of "friends" have been helped</p>
         <p className="text-lg font-bold text-center text-white underline text-underline">This is what they say</p>
       </div>
-      <div className={`flex flex-col items-center relative transition-all ease-in-out overflow-hidden duration-1000 w-full ${!Expanded ? 'max-h-64' : 'max-h-min'} `}>
-        <div className="w-full flex flex-wrap items-center gap-4 justify-center py-9 px-2">
+      <motion.div
+        animate={{
+          gridTemplateRows: Expanded ? "1fr" : "0.4fr"
+        }}
+        style={{
+          display: "grid",
+          gridTemplateRows: "0fr"
+        }}
+        className={`relative transition-all ease-in-out overflow-hidden duration-1000 w-full`}>
+        <div className="w-full flex flex-wrap items-center gap-4 justify-center py-9 px-2 min-h-0">
           {TestimonialsData.map((v, i) => <TestimonialsCard key={i} {...v} />)}
+          {/* {TestimonialsData.map((v, i) => <p>Hello</p>)} */}
         </div>
-        {
-          Expanded &&
+        <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2  w-full flex justify-center h-10 items-end bg-gradient-to-t from-background bg-transparent'>
           <button type='button' className=' bg-primary-btn rounded-full break-normal max-w-min px-9 py-1 whitespace-nowrap font-bold text-white hover:shadow-lg hover:shadow-primary-btn/30 duration-200 transition-all mb-5' onClick={() => { setExpanded(!Expanded) }}>Show Less</button>
-        }
-        {
-          !Expanded &&
-          <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2  w-full flex justify-center h-10 items-end bg-gradient-to-t from-background bg-transparent'>
-            <button type='button' className=' bg-primary-btn rounded-full break-normal max-w-min px-9 py-1 whitespace-nowrap font-bold text-white hover:shadow-lg hover:shadow-primary-btn/30 duration-200 transition-all mb-5' onClick={() => { setExpanded(!Expanded) }}>Show More</button>
-          </div>
-        }
-      </div>
+        </div>
+      </motion.div>
     </div>
   )
 }
