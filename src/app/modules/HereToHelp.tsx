@@ -50,7 +50,7 @@ function SmallNeedToHelp() {
       <div className='flex flex-col max-w-3xl gap-4'>
         <div className="flex flex-col justify-between bg-[#211F1E] rounded-md p-6 gap-10">
           <div className="flex flex-col gap-2">
-            <p className="text-xl font-bold text-white text-center">Machine Learning NLP Consultation</p>
+            <p className="text-xl font-bold text-white">Machine Learning NLP Consultation</p>
             <p className="text-secondary-btn">Leverage my expertise in NLP to unlock the power of text data. I offer comprehensive solutions for sentiment analysis, text classification, named entity recognition, and more. Harness the potential of NLP to gain valuable insights and automate language-based tasks.</p>
           </div>
           <div className="flex flex-col items-center">
@@ -61,7 +61,7 @@ function SmallNeedToHelp() {
         </div>
         <div className="flex flex-col justify-between bg-[#211F1E] rounded-md p-6 gap-10">
           <div className="flex flex-col gap-2">
-            <p className="text-xl font-bold text-white text-center">Machine Learning Model Deployment</p>
+            <p className="text-xl font-bold text-white">Machine Learning Model Deployment</p>
             <p className="text-secondary-btn">Seamlessly deploy and integrate machine learning models into your applications. Benefit from my experience in deploying models using popular frameworks and technologies such as TensorFlow, PyTorch, FastAPI, Docker, and Kubernetes. Ensure smooth and efficient integration of ML models for real-world use cases.</p>
           </div>
           <div className="flex flex-col items-center">
@@ -90,7 +90,7 @@ function HereToHelp() {
   return (
     <div id='here-to-help' className='flex flex-col mt-16 items-center gap-6 mx-7'>
       <div>
-        <p className='text-4xl font-bold text-center text-white underline'>I’m Here To Help You</p>
+        <p className='text-4xl font-bold text-center text-white '>I’m Here To Help You</p>
       </div>
       <LargeNeedToHelp />
       <SmallNeedToHelp />

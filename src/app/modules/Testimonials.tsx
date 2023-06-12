@@ -41,7 +41,7 @@ function Testimonials() {
           {/* {TestimonialsData.map((v, i) => <p>Hello</p>)} */}
         </div>
         <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2  w-full flex justify-center h-10 items-end bg-gradient-to-t from-background bg-transparent'>
-          <button type='button' className=' bg-primary-btn rounded-full break-normal max-w-min px-9 py-1 whitespace-nowrap font-bold text-white hover:shadow-lg hover:shadow-primary-btn/30 duration-200 transition-all mb-5' onClick={() => { setExpanded(!Expanded) }}>Show Less</button>
+          <button type='button' className=' bg-primary-btn rounded-full break-normal max-w-min px-9 py-1 whitespace-nowrap font-bold text-white hover:shadow-lg hover:shadow-primary-btn/30 duration-200 transition-all mb-5' onClick={() => { setExpanded(!Expanded) }}>Show {Expanded ? "Less" : "More"}</button>
         </div>
       </motion.div>
     </div>
