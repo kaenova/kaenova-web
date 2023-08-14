@@ -42,7 +42,7 @@ export const projects: Project[] = [
       "Docker",
       "Machine Learning"
     ],
-    href: "https://github.com/kaenova/halliu"
+    href: "https://github.com/CC22-HO01-TravelokaSigapore-HotelRanks"
   },
   {
     title: "Travelliu",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
       "Next.js",
       "Machine Learning"
     ],
-    href: "https://github.com/CC22-HO01-TravelokaSigapore-HotelRanks"
+    href: "https://travelliu.yaudahlah.my.id"
   },
   {
     title: "iTalase",
