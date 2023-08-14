@@ -8,7 +8,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Halliu",
-    description: "A small-scaled application to share and stream your best moments to the world. It allows users to upload videos, do live streaming, and offers various peripheral features.",
+    description: "Small-scaled application to share and stream your best moments to the world. It allows users to upload videos, do live streaming, and offers various peripheral features.",
     stack: [
       "Next.js",
       "DaisyUI",
@@ -21,7 +21,18 @@ export const projects: Project[] = [
       "GitHub Actions",
       "Docker-compose",
     ],
-    href: "https://github.com/kaenova/halliu"
+    href: "https://halliu.kaenova.my.id"
+  },
+  {
+    title: "Antri.In",
+    description: "An open-source, localized, and easy-to-implement queue management system. It allows integration with private networks and provides access to everyone.",
+    stack: [
+      "Go (Programming Language)",
+      "Continuous Integration and Continuous Delivery (CI/CD)",
+      "Docker",
+      "Next.js"
+    ],
+    href: "https://antriin.kaenova.my.id"
   },
   {
     title: "HotelBli!",
@@ -43,17 +54,6 @@ export const projects: Project[] = [
       "Machine Learning"
     ],
     href: "https://github.com/CC22-HO01-TravelokaSigapore-HotelRanks"
-  },
-  {
-    title: "Antri.In",
-    description: "An open-source, localized, and easy-to-implement queue management system. It allows integration with private networks and provides access to everyone.",
-    stack: [
-      "Go (Programming Language)",
-      "Continuous Integration and Continuous Delivery (CI/CD)",
-      "Docker",
-      "Next.js"
-    ],
-    href: "https://github.com/kaenova/antri-in"
   },
   {
     title: "iTalase",
