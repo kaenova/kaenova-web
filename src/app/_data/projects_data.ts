@@ -2,7 +2,7 @@ export interface Project {
   title: string;
   description: string;
   stack?: string[];
-  href: string;
+  href?: string;
 }
 
 export const projects: Project[] = [
@@ -46,7 +46,7 @@ export const projects: Project[] = [
       "GitHub Actions",
       "Docker-compose",
     ],
-    href: "https://github.com/kaenova/halliu",
+    href: "https://halliu.kaenova.my.id",
   },
   {
     title: "HotelBli!",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
       "Docker",
       "Machine Learning",
     ],
-    href: "https://github.com/kaenova/halliu",
+    href: "https://github.com/CC22-HO01-TravelokaSigapore-HotelRanks",
   },
   {
     title: "Travelliu",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
       "Next.js",
       "Machine Learning",
     ],
-    href: "https://github.com/CC22-HO01-TravelokaSigapore-HotelRanks",
+    href: "https://travelliu.yaudahlah.my.id/",
   },
   {
     title: "Antri.In",
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "Docker",
       "Next.js",
     ],
-    href: "https://github.com/kaenova/antri-in",
+    href: "https://antriin.kaenova.my.id",
   },
   {
     title: "iTalase",

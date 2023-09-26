@@ -57,7 +57,7 @@ function TestimonialsSection() {
         }}
         className={`relative transition-all ease-in-out overflow-hidden duration-1000 w-full p-2`}
       >
-        <div className="w-full columns-2 min-h-0 pb-16">
+        <div className="w-full columns-2 min-h-0 pb-16 p-2">
           {TestimonialsData.map((v, i) => (
             <TestimonialsCard className="my-2" key={i} {...v} />
           ))}
