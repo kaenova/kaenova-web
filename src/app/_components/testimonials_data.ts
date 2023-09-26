@@ -108,7 +108,7 @@ const testimonials = [
     name: "Rischa Nurul Hidayati",
     review: "Always present and helpful in every mentoring session.",
   },
-   {
+  {
     name: "Fikri Maulana",
     review: 'Keren, cara pembahasannya mudah dimengerti buat orang yang baru belajar, dan ciri khasnya "kita cari masalah errornya pelan-pelan"',
   },

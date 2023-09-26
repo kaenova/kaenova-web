@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Testimonials as TestimonialsType, testimonials } from './testimonials_data'
 import { twMerge } from 'tailwind-merge'
-import shuffleArray from '../utils/shuffleArray'
+import shuffleArray from '../../utils/shuffleArray'
 import { motion } from 'framer-motion'
 
 function TestimonialsCard({ className, ...data }: TestimonialsType & { className?: string }) {
@@ -29,11 +29,10 @@ function Testimonials() {
       </div>
       <motion.div
         animate={{
-          gridTemplateRows: Expanded ? "1fr" : "0.4fr"
+          gridTemplateRows: Expanded ? "1fr" : `0.12fr`
         }}
         style={{
           display: "grid",
-          gridTemplateRows: "0fr"
         }}
         className={`relative transition-all ease-in-out overflow-hidden duration-1000 w-full`}>
         <div className="w-full flex flex-wrap items-center gap-4 justify-center py-9 px-2 min-h-0">

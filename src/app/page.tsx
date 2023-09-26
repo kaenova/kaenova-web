@@ -1,16 +1,16 @@
 "use client"
 
 import { Inter } from 'next/font/google'
-import AboutMe from './modules/AboutMe'
-import Hero from './modules/Hero'
-import WhatCanIDo from './modules/WhatCanIDo'
-import Experiences from './modules/Experiences'
-import Projects from './modules/Projects'
-import Testimonials from './modules/Testimonials'
-import HereToHelp from './modules/HereToHelp'
-import Footer from './modules/Footer'
-import BackToTop from './modules/BackToTop'
-import ScrollProgress from './modules/ScrollProgress'
+import AboutMe from './_components/AboutMe'
+import Hero from './_components/Hero'
+import WhatCanIDo from './_components/WhatCanIDo'
+import Experiences from './_components/Experiences'
+import Projects from './_components/Projects'
+import Testimonials from './_components/Testimonials'
+import HereToHelp from './_components/HereToHelp'
+import Footer from './_components/Footer'
+import BackToTop from './_components/BackToTop'
+import ScrollProgress from './_components/ScrollProgress'
 
 const inter = Inter({ subsets: ['latin'] })
 
