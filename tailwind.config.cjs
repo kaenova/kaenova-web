@@ -22,7 +22,8 @@ module.exports = {
       colors: {
         ...colors,
         white: "#F8F7F7",
-        background: "#161413",
+        foreground: "#F8F7F7",
+        background: "#000000",
         "primary-btn": "#146FE6",
         "secondary-btn": "#FDF1E3",
         accent: "#0C4288",

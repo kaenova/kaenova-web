@@ -1,25 +1,30 @@
-import React from 'react'
+import React from "react";
 
 function BackToTop() {
-
   function handleClick() {
     if (!window) {
-      return
+      return;
     }
 
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   }
 
   return (
-    <div className='flex flex-col mt-16 text-white text-center font-semibold'>
+    <div className="flex flex-col mt-16 text-sm md:text-base text-white text-center font-semibold">
       <p>This is the end of the page</p>
       <p>Thank you for checking my website until the end 🌟</p>
-      <button onClick={handleClick} type='button' className='text-white font-semibold text-center'>Back to top</button>
+      <button
+        onClick={handleClick}
+        type="button"
+        className="text-white font-semibold text-center"
+      >
+        Back to top
+      </button>
     </div>
-  )
+  );
 }
 
-export default BackToTop
+export default BackToTop;
