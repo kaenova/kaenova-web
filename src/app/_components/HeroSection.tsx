@@ -1,6 +1,8 @@
 "use client";
 
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 import React from "react";
+import { Variants, motion } from "framer-motion";
 
 function HeroSection() {
   function handleClick() {
@@ -11,6 +13,11 @@ function HeroSection() {
       behavior: "smooth",
     });
   }
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: "15px" },
+    show: { opacity: 1, y: "0px", transition: { duration: 0.75 } },
+  };
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center gap-4 text-center">
@@ -35,19 +42,43 @@ function HeroSection() {
           Backend, Machine Learning Engineer, DevOps Enthusiast
         </h2>
       </div>
-      <div className="flex flex-row gap-4">
-        <a
+      <div className="flex flex-row text-white">
+        <motion.a
+          variants={itemVariants}
+          initial="hidden"
+          animate="show"
           href="https://www.linkedin.com/in/kaenova/"
-          className="px-4 py-2 rounded-md bg-primary-btn hover:shadow-lg hover:shadow-primary-btn/30 duration-200 transition-all"
+          className="px-4 py-2"
         >
-          <p className="text-sm text-white font-semibold">LinkedIn</p>
-        </a>
-        <a
+          <Linkedin strokeWidth={1.5} />
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
+          initial="hidden"
+          animate="show"
+          href="https://github.com/kaenova"
+          className="px-4 py-2"
+        >
+          <Github />
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
+          initial="hidden"
+          animate="show"
           href="mailto:kaenova@gmail"
-          className="px-4 py-2 rounded-md bg-secondary-btn hover:shadow-lg hover:shadow-secondary-btn/30 duration-200 transition-all h-fit w-fit"
+          className="px-4 py-2"
         >
-          <p className="text-sm font-semibold">Contact Me via Email</p>
-        </a>
+          <Mail />
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
+          initial="hidden"
+          animate="show"
+          href="/assets/cv.pdf"
+          className="px-4 py-2"
+        >
+          <Download />
+        </motion.a>
       </div>
     </section>
   );

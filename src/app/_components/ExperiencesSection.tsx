@@ -25,9 +25,9 @@ function ExperienceCard({
 
   return (
     <motion.div
-      variants={variant}
-      initial="offscreen"
-      whileInView="onscreen"
+      // variants={variant}
+      // initial="offscreen"
+      // whileInView="onscreen"
       transition={{ ease: "easeIn" }}
       viewport={{ once: true, amount: 0.7 }}
       className="flex flex-col w-full md:pl-4"

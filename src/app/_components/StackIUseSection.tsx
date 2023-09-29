@@ -26,11 +26,11 @@ function OutlineSkillData({
 
   return (
     <motion.div
-      variants={variant}
-      initial="offscreen"
-      whileInView="onscreen"
-      transition={{ ease: "easeIn" }}
-      viewport={{ once: true, amount: 0.9 }}
+      // variants={variant}
+      // initial="offscreen"
+      // whileInView="onscreen"
+      // transition={{ ease: "easeIn" }}
+      // viewport={{ once: true, amount: 0.9 }}
       className={twMerge(
         "px-4 py-2 flex flex-col rounded-md h-min text-center",
         className
