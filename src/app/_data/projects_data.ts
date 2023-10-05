@@ -7,6 +7,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Draw React Icons",
+    description:
+      "Wondering what's the name of the icon you imagine? By utilizing machine learning, we can help you find relevant icons from your imaginations.",
+    href: "https://draw-react-icons.kaenova.my.id",
+  },
+  {
     title: "Astabyte",
     description:
       "Unlock your business potential with AstaByte Consulting. We offer expert IT consulting services, including web and mobile app development, product design, and market research. Trusted by many businesses. Contact us for a free consultation!",
