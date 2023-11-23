@@ -5,6 +5,12 @@ export const ExperienceData: {
   desc: string;
 }[] = [
   {
+    title: "IT Network Support Staff",
+    where: "Bank Central Asia Tbk (BCA)",
+    when: "November 2023 - Present",
+    desc: "IT Network Support for BCA IT development and BCA Product Business Lines, specializing in Point of Sale (POS), Electronic Data Capture (EDC), Online-Offline Transaction, and Payment Processor systems (Visa, Mastercard, JCB, American Express).",
+  },
+  {
     title: "Machine Learning Mentor",
     where: "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
     when: "January 2023 - July 2023",
