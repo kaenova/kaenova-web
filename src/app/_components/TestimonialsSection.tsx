@@ -15,6 +15,7 @@ function TestimonialsCard({
 }: TestimonialsType & { className?: string }) {
   return (
     <div
+id="testimonials"
       className={twMerge(
         " flex flex-col rounded-md h-min hover:shadow-xl hover:shadow-secondary-btn/10 duration-200 transition-all hover:scale-105 border border-foreground/10 p-2",
         className
