@@ -6,6 +6,12 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+    title: "OneWayStats",
+    description:
+      "It's time to Mudik for Indonesians with one lane toll! With machine learning, you can choose which lane the best that's suit for you to take on the toll!",
+    href: "https://onewaystats.kaenova.my.id",
+  },
   {
     title: "Draw React Icons",
     description:
